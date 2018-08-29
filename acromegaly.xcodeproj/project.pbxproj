@@ -12,6 +12,7 @@
 		AF5C928921302A8400FADA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928721302A8400FADA46 /* Main.storyboard */; };
 		AF5C928B21302A8500FADA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928A21302A8500FADA46 /* Assets.xcassets */; };
 		AF5C928E21302A8500FADA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */; };
+		AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF395272136B1260076C84D /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		AF5C928A21302A8500FADA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5C928D21302A8500FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5C928F21302A8500FADA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF395272136B1260076C84D /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +43,7 @@
 			children = (
 				AF5C928221302A8400FADA46 /* Acromegaly */,
 				AF5C928121302A8400FADA46 /* Products */,
+				AFF395262136B1260076C84D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +68,14 @@
 			path = Acromegaly;
 			sourceTree = "<group>";
 		};
+		AFF395262136B1260076C84D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AFF395272136B1260076C84D /* PromiseKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,6 +86,7 @@
 				AF5C927C21302A8400FADA46 /* Sources */,
 				AF5C927D21302A8400FADA46 /* Frameworks */,
 				AF5C927E21302A8400FADA46 /* Resources */,
+				AFF395292136B1320076C84D /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +142,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AFF395292136B1320076C84D /* Carthage Copy Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
+			);
+			name = "Carthage Copy Frameworks";
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF5C927C21302A8400FADA46 /* Sources */ = {
@@ -281,6 +313,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q436T99AEU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Acromegaly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -298,6 +335,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Q436T99AEU;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Acromegaly/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
