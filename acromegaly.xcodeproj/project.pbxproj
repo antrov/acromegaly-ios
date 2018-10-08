@@ -7,22 +7,62 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0C5CC7215E4B3100BD69F6 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC2215E4B3000BD69F6 /* Deeplink.swift */; };
+		AF0C5CC8215E4B3100BD69F6 /* NavigationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC3215E4B3000BD69F6 /* NavigationWrapper.swift */; };
+		AF0C5CC9215E4B3100BD69F6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC4215E4B3000BD69F6 /* Coordinator.swift */; };
+		AF0C5CCA215E4B3100BD69F6 /* TabBarWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC5215E4B3000BD69F6 /* TabBarWrapper.swift */; };
+		AF0C5CCB215E4B3100BD69F6 /* ControllerWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC6215E4B3100BD69F6 /* ControllerWrapper.swift */; };
+		AF0C5CCE215E4C8200BD69F6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CCD215E4C8200BD69F6 /* AppCoordinator.swift */; };
+		AF0C5CD5215E4CD400BD69F6 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CD4215E4CD400BD69F6 /* Logger.swift */; };
+		AF0C5CDE215E5D6200BD69F6 /* Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CDD215E5D6200BD69F6 /* Storyboard.swift */; };
+		AF0C5CE1215E681800BD69F6 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF0C5CE0215E681800BD69F6 /* Home.storyboard */; };
+		AF0C5CE3215E683000BD69F6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE2215E683000BD69F6 /* HomeCoordinator.swift */; };
+		AF0C5CE7215E688E00BD69F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */; };
+		AF0C5CE9215E689700BD69F6 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */; };
+		AF116F38215D7D1000C93A66 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */; };
+		AF4A5D86216BE96700909B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4A5D85216BE96700909B71 /* Assets.xcassets */; };
 		AF5C928421302A8400FADA46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C928321302A8400FADA46 /* AppDelegate.swift */; };
-		AF5C928621302A8400FADA46 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C928521302A8400FADA46 /* ViewController.swift */; };
-		AF5C928921302A8400FADA46 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928721302A8400FADA46 /* Main.storyboard */; };
-		AF5C928B21302A8500FADA46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928A21302A8500FADA46 /* Assets.xcassets */; };
+		AF5C928921302A8400FADA46 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928721302A8400FADA46 /* App.storyboard */; };
 		AF5C928E21302A8500FADA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */; };
+		AF6768DF2164B3C400DA2631 /* BluetoothConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6768DE2164B3C400DA2631 /* BluetoothConstants.swift */; };
+		AF6768E22164EF4800DA2631 /* StatusValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6768E12164EF4800DA2631 /* StatusValue.swift */; };
+		AF6768E42164EFBD00DA2631 /* CharacteristicHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6768E32164EFBD00DA2631 /* CharacteristicHandler.swift */; };
+		AFAC5207215E9B5E00DD1194 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC5206215E9B5E00DD1194 /* ServiceLocator.swift */; };
+		AFAC5209215E9BA100DD1194 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC5208215E9BA100DD1194 /* BluetoothService.swift */; };
+		AFB0B9B12162C29B00F9E606 /* BluetoothCentralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */; };
+		AFB0B9B32162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B22162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift */; };
+		AFB0B9B52162C2B900F9E606 /* BluetoothCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */; };
 		AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF395272136B1260076C84D /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0C5CC2215E4B3000BD69F6 /* Deeplink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
+		AF0C5CC3215E4B3000BD69F6 /* NavigationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationWrapper.swift; sourceTree = "<group>"; };
+		AF0C5CC4215E4B3000BD69F6 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		AF0C5CC5215E4B3000BD69F6 /* TabBarWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarWrapper.swift; sourceTree = "<group>"; };
+		AF0C5CC6215E4B3100BD69F6 /* ControllerWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerWrapper.swift; sourceTree = "<group>"; };
+		AF0C5CCD215E4C8200BD69F6 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		AF0C5CD4215E4CD400BD69F6 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		AF0C5CDD215E5D6200BD69F6 /* Storyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboard.swift; sourceTree = "<group>"; };
+		AF0C5CE0215E681800BD69F6 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		AF0C5CE2215E683000BD69F6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		AF4A5D85216BE96700909B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AF5C928021302A8400FADA46 /* Acromegaly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acromegaly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C928321302A8400FADA46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AF5C928521302A8400FADA46 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		AF5C928821302A8400FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AF5C928A21302A8500FADA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF5C928821302A8400FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/App.storyboard; sourceTree = "<group>"; };
 		AF5C928D21302A8500FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF5C928F21302A8500FADA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AF6768DE2164B3C400DA2631 /* BluetoothConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothConstants.swift; sourceTree = "<group>"; };
+		AF6768E12164EF4800DA2631 /* StatusValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusValue.swift; sourceTree = "<group>"; };
+		AF6768E32164EFBD00DA2631 /* CharacteristicHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicHandler.swift; sourceTree = "<group>"; };
+		AFAC5206215E9B5E00DD1194 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		AFAC5208215E9BA100DD1194 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
+		AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCentralDelegate.swift; sourceTree = "<group>"; };
+		AFB0B9B22162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPeripherialDelegate.swift; sourceTree = "<group>"; };
+		AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCommunication.swift; sourceTree = "<group>"; };
 		AFF395272136B1260076C84D /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF116F38215D7D1000C93A66 /* CoreBluetooth.framework in Frameworks */,
 				AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +79,108 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF0C5CBD215E49F500BD69F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AF6D4A8321627D9100ECB137 /* Bluetooth */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		AF0C5CBE215E4A1200BD69F6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CCC215E4C4500BD69F6 /* App */,
+				AF0C5CDF215E680600BD69F6 /* Home */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		AF0C5CBF215E4A2B00BD69F6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CD3215E4CD400BD69F6 /* Logging */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		AF0C5CC0215E4A5200BD69F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AF4A5D85216BE96700909B71 /* Assets.xcassets */,
+				AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */,
+				AF5C928F21302A8500FADA46 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF0C5CC1215E4B1F00BD69F6 /* Architecture */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CDC215E5D4F00BD69F6 /* Core */,
+				AF0C5CDD215E5D6200BD69F6 /* Storyboard.swift */,
+			);
+			path = Architecture;
+			sourceTree = "<group>";
+		};
+		AF0C5CCC215E4C4500BD69F6 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				AF5C928721302A8400FADA46 /* App.storyboard */,
+				AF5C928321302A8400FADA46 /* AppDelegate.swift */,
+				AF0C5CCD215E4C8200BD69F6 /* AppCoordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		AF0C5CD3215E4CD400BD69F6 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CD4215E4CD400BD69F6 /* Logger.swift */,
+			);
+			path = Logging;
+			sourceTree = "<group>";
+		};
+		AF0C5CDC215E5D4F00BD69F6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CC6215E4B3100BD69F6 /* ControllerWrapper.swift */,
+				AF0C5CC4215E4B3000BD69F6 /* Coordinator.swift */,
+				AF0C5CC2215E4B3000BD69F6 /* Deeplink.swift */,
+				AF0C5CC3215E4B3000BD69F6 /* NavigationWrapper.swift */,
+				AF0C5CC5215E4B3000BD69F6 /* TabBarWrapper.swift */,
+				AFAC5206215E9B5E00DD1194 /* ServiceLocator.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		AF0C5CDF215E680600BD69F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CE0215E681800BD69F6 /* Home.storyboard */,
+				AF0C5CE2215E683000BD69F6 /* HomeCoordinator.swift */,
+				AF0C5CE4215E684300BD69F6 /* Scenes */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AF0C5CE4215E684300BD69F6 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CE5215E686100BD69F6 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AF0C5CE5215E686100BD69F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */,
+				AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		AF5C927721302A8400FADA46 = {
 			isa = PBXGroup;
 			children = (
@@ -58,19 +201,41 @@
 		AF5C928221302A8400FADA46 /* Acromegaly */ = {
 			isa = PBXGroup;
 			children = (
-				AF5C928321302A8400FADA46 /* AppDelegate.swift */,
-				AF5C928521302A8400FADA46 /* ViewController.swift */,
-				AF5C928721302A8400FADA46 /* Main.storyboard */,
-				AF5C928A21302A8500FADA46 /* Assets.xcassets */,
-				AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */,
-				AF5C928F21302A8500FADA46 /* Info.plist */,
+				AF0C5CC1215E4B1F00BD69F6 /* Architecture */,
+				AF0C5CBE215E4A1200BD69F6 /* Modules */,
+				AF0C5CBF215E4A2B00BD69F6 /* Utils */,
+				AF0C5CBD215E49F500BD69F6 /* Services */,
+				AF0C5CC0215E4A5200BD69F6 /* Supporting Files */,
 			);
 			path = Acromegaly;
+			sourceTree = "<group>";
+		};
+		AF6768E02164EF3400DA2631 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF6768E12164EF4800DA2631 /* StatusValue.swift */,
+				AF6768E32164EFBD00DA2631 /* CharacteristicHandler.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF6D4A8321627D9100ECB137 /* Bluetooth */ = {
+			isa = PBXGroup;
+			children = (
+				AFAC5208215E9BA100DD1194 /* BluetoothService.swift */,
+				AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */,
+				AFB0B9B22162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift */,
+				AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */,
+				AF6768DE2164B3C400DA2631 /* BluetoothConstants.swift */,
+				AF6768E02164EF3400DA2631 /* Models */,
+			);
+			path = Bluetooth;
 			sourceTree = "<group>";
 		};
 		AFF395262136B1260076C84D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */,
 				AFF395272136B1260076C84D /* PromiseKit.framework */,
 			);
 			name = Frameworks;
@@ -109,6 +274,7 @@
 				TargetAttributes = {
 					AF5C927F21302A8400FADA46 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -136,8 +302,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF5C928E21302A8500FADA46 /* LaunchScreen.storyboard in Resources */,
-				AF5C928B21302A8500FADA46 /* Assets.xcassets in Resources */,
-				AF5C928921302A8400FADA46 /* Main.storyboard in Resources */,
+				AF5C928921302A8400FADA46 /* App.storyboard in Resources */,
+				AF4A5D86216BE96700909B71 /* Assets.xcassets in Resources */,
+				AF0C5CE1215E681800BD69F6 /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +325,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -167,20 +334,38 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF5C928621302A8400FADA46 /* ViewController.swift in Sources */,
+				AF0C5CCE215E4C8200BD69F6 /* AppCoordinator.swift in Sources */,
+				AF6768E42164EFBD00DA2631 /* CharacteristicHandler.swift in Sources */,
+				AF0C5CCB215E4B3100BD69F6 /* ControllerWrapper.swift in Sources */,
+				AFAC5209215E9BA100DD1194 /* BluetoothService.swift in Sources */,
+				AF0C5CCA215E4B3100BD69F6 /* TabBarWrapper.swift in Sources */,
+				AF0C5CE9215E689700BD69F6 /* HomeInteractor.swift in Sources */,
+				AFAC5207215E9B5E00DD1194 /* ServiceLocator.swift in Sources */,
+				AF6768E22164EF4800DA2631 /* StatusValue.swift in Sources */,
+				AF0C5CDE215E5D6200BD69F6 /* Storyboard.swift in Sources */,
 				AF5C928421302A8400FADA46 /* AppDelegate.swift in Sources */,
+				AF0C5CD5215E4CD400BD69F6 /* Logger.swift in Sources */,
+				AF0C5CE3215E683000BD69F6 /* HomeCoordinator.swift in Sources */,
+				AF0C5CE7215E688E00BD69F6 /* HomeViewController.swift in Sources */,
+				AF0C5CC9215E4B3100BD69F6 /* Coordinator.swift in Sources */,
+				AF0C5CC7215E4B3100BD69F6 /* Deeplink.swift in Sources */,
+				AFB0B9B12162C29B00F9E606 /* BluetoothCentralDelegate.swift in Sources */,
+				AF0C5CC8215E4B3100BD69F6 /* NavigationWrapper.swift in Sources */,
+				AFB0B9B52162C2B900F9E606 /* BluetoothCommunication.swift in Sources */,
+				AF6768DF2164B3C400DA2631 /* BluetoothConstants.swift in Sources */,
+				AFB0B9B32162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AF5C928721302A8400FADA46 /* Main.storyboard */ = {
+		AF5C928721302A8400FADA46 /* App.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				AF5C928821302A8400FADA46 /* Base */,
 			);
-			name = Main.storyboard;
+			name = App.storyboard;
 			sourceTree = "<group>";
 		};
 		AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */ = {
@@ -318,14 +503,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Acromegaly/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Acromegaly/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.Acromegaly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -340,14 +525,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
-				INFOPLIST_FILE = Acromegaly/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Acromegaly/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.Acromegaly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
