@@ -94,7 +94,21 @@ final class BluetoothStateView: UIView {
             stateLabel.layer.add(labelTransition, forKey: "kCATransitionPush")
         }
         
-        stateLabel.text = state.rawValue
+        switch state {
+        case .unknown:
+            stateLabel.text = "home.home.bluetoothstatusview.unknownd".localized()
+        case .poweredOff:
+            stateLabel.text = "home.home.bluetoothstatusview.poweredOff".localized()
+        case .poweredOn:
+            stateLabel.text = "home.home.bluetoothstatusview.poweredOn".localized()
+        case .scanning:
+            stateLabel.text = "home.home.bluetoothstatusview.scanning".localized()
+        case .connecting:
+            stateLabel.text = "home.home.bluetoothstatusview.connecting".localized()
+        case .connected:
+            stateLabel.text = "home.home.bluetoothstatusview.connected".localized()
+       
+        }
     }
     
     private func setTextHidden(_ hidden: Bool, animated: Bool) {
