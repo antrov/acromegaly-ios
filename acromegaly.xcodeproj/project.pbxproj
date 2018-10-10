@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF0A9081216D579D00BEB319 /* BluetoothStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0A9080216D579D00BEB319 /* BluetoothStateView.swift */; };
 		AF0C5CC7215E4B3100BD69F6 /* Deeplink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC2215E4B3000BD69F6 /* Deeplink.swift */; };
 		AF0C5CC8215E4B3100BD69F6 /* NavigationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC3215E4B3000BD69F6 /* NavigationWrapper.swift */; };
 		AF0C5CC9215E4B3100BD69F6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CC4215E4B3000BD69F6 /* Coordinator.swift */; };
@@ -19,6 +20,8 @@
 		AF0C5CE3215E683000BD69F6 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE2215E683000BD69F6 /* HomeCoordinator.swift */; };
 		AF0C5CE7215E688E00BD69F6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */; };
 		AF0C5CE9215E689700BD69F6 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */; };
+		AF0E2F23216E89CE000B8359 /* UIView+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E2F22216E89CE000B8359 /* UIView+Reusable.swift */; };
+		AF0E2F25216E8A19000B8359 /* UIColor+Customs.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E2F24216E8A19000B8359 /* UIColor+Customs.swift */; };
 		AF116F38215D7D1000C93A66 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */; };
 		AF4A5D86216BE96700909B71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF4A5D85216BE96700909B71 /* Assets.xcassets */; };
 		AF5C928421302A8400FADA46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C928321302A8400FADA46 /* AppDelegate.swift */; };
@@ -36,6 +39,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF0A9080216D579D00BEB319 /* BluetoothStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BluetoothStateView.swift; path = acromegaly/Modules/Home/Scenes/Home/Views/BluetoothStateView.swift; sourceTree = SOURCE_ROOT; };
 		AF0C5CC2215E4B3000BD69F6 /* Deeplink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deeplink.swift; sourceTree = "<group>"; };
 		AF0C5CC3215E4B3000BD69F6 /* NavigationWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationWrapper.swift; sourceTree = "<group>"; };
 		AF0C5CC4215E4B3000BD69F6 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -48,8 +52,10 @@
 		AF0C5CE2215E683000BD69F6 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		AF0E2F22216E89CE000B8359 /* UIView+Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Reusable.swift"; path = "acromegaly/Utils/Extensions/UIView+Reusable.swift"; sourceTree = SOURCE_ROOT; };
+		AF0E2F24216E8A19000B8359 /* UIColor+Customs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Customs.swift"; sourceTree = "<group>"; };
 		AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		AF4A5D85216BE96700909B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AF4A5D85216BE96700909B71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "acromegaly/Supporting Files/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		AF5C928021302A8400FADA46 /* Acromegaly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acromegaly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C928321302A8400FADA46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5C928821302A8400FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/App.storyboard; sourceTree = "<group>"; };
@@ -79,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF0A907F216D574600BEB319 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AF0A9080216D579D00BEB319 /* BluetoothStateView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		AF0C5CBD215E49F500BD69F6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +113,7 @@
 		AF0C5CBF215E4A2B00BD69F6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AF0E2F21216E8983000B8359 /* Extensions */,
 				AF0C5CD3215E4CD400BD69F6 /* Logging */,
 			);
 			path = Utils;
@@ -177,8 +192,18 @@
 			children = (
 				AF0C5CE6215E688E00BD69F6 /* HomeViewController.swift */,
 				AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */,
+				AF0A907F216D574600BEB319 /* Views */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		AF0E2F21216E8983000B8359 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF0E2F22216E89CE000B8359 /* UIView+Reusable.swift */,
+				AF0E2F24216E8A19000B8359 /* UIColor+Customs.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		AF5C927721302A8400FADA46 = {
@@ -339,6 +364,7 @@
 				AF0C5CCB215E4B3100BD69F6 /* ControllerWrapper.swift in Sources */,
 				AFAC5209215E9BA100DD1194 /* BluetoothService.swift in Sources */,
 				AF0C5CCA215E4B3100BD69F6 /* TabBarWrapper.swift in Sources */,
+				AF0E2F23216E89CE000B8359 /* UIView+Reusable.swift in Sources */,
 				AF0C5CE9215E689700BD69F6 /* HomeInteractor.swift in Sources */,
 				AFAC5207215E9B5E00DD1194 /* ServiceLocator.swift in Sources */,
 				AF6768E22164EF4800DA2631 /* StatusValue.swift in Sources */,
@@ -347,11 +373,13 @@
 				AF0C5CD5215E4CD400BD69F6 /* Logger.swift in Sources */,
 				AF0C5CE3215E683000BD69F6 /* HomeCoordinator.swift in Sources */,
 				AF0C5CE7215E688E00BD69F6 /* HomeViewController.swift in Sources */,
+				AF0E2F25216E8A19000B8359 /* UIColor+Customs.swift in Sources */,
 				AF0C5CC9215E4B3100BD69F6 /* Coordinator.swift in Sources */,
 				AF0C5CC7215E4B3100BD69F6 /* Deeplink.swift in Sources */,
 				AFB0B9B12162C29B00F9E606 /* BluetoothCentralDelegate.swift in Sources */,
 				AF0C5CC8215E4B3100BD69F6 /* NavigationWrapper.swift in Sources */,
 				AFB0B9B52162C2B900F9E606 /* BluetoothCommunication.swift in Sources */,
+				AF0A9081216D579D00BEB319 /* BluetoothStateView.swift in Sources */,
 				AF6768DF2164B3C400DA2631 /* BluetoothConstants.swift in Sources */,
 				AFB0B9B32162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift in Sources */,
 			);
@@ -511,7 +539,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.Acromegaly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -533,7 +561,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.antrov.Acromegaly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
