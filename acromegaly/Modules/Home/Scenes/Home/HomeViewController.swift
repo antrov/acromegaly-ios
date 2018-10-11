@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PromiseKit
 
 protocol HomeController: class {
     func updateBluetooth(state: BluetoothState)
@@ -24,6 +25,9 @@ class HomeViewController: UIViewController, HomeController {
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
     
+    @IBOutlet weak var stateView: BluetoothStateView!
+    
+    
     static func setup(interactor: HomeInteractor) -> HomeViewController {
         let controller: HomeViewController = UIStoryboard.home.instantiateViewController()
         controller.interactor = interactor
@@ -34,10 +38,22 @@ class HomeViewController: UIViewController, HomeController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.controllerLoaded()
+        
+        after(seconds: 4).done {
+            self.hide()
+        }
+    }
+    
+    func hide() {
+//        stateView.setHidden(arc4random() % 2 == 0, animated: true)
+        after(seconds: 2.25).done {
+            self.hide()
+        }
     }
     
     func updateBluetooth(state: BluetoothState) {
         bleStatusLabel.text = state.rawValue
+        stateView.setState(state)
     }
     
     func updateStatuts(_ statusValue: StatusValue) {
@@ -61,12 +77,13 @@ class HomeViewController: UIViewController, HomeController {
     
     lazy var prev: Double = self.stepper.value
     @IBAction func stepperChanged(_ sender: Any) {
-        if stepper.value > prev {
-            interactor.setTargetOneUp()
-        } else {
-            interactor.setTargetOneDown()
-        }
-        
-        prev = stepper.value
+        stateView.setHidden(Int(stepper.value) % 2 == 0, animated: true)
+//        if stepper.value > prev {
+//            interactor.setTargetOneUp()
+//        } else {
+//            interactor.setTargetOneDown()
+//        }
+//
+//        prev = stepper.value
     }
 }

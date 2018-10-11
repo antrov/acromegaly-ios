@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import PromiseKit
 
 protocol HomeInteractor: class {
     var controller: HomeController? { get set }
@@ -34,6 +35,23 @@ final class HomeInteractorImpl: HomeInteractor {
     
     func controllerLoaded() {
         bluetoothService.connect()
+        
+        nextState(state: .unknown)
+    }
+    
+    func nextState(state: BluetoothState) {
+        guard var index = BluetoothState.allCases.firstIndex(of: state) else { fatalError("No index") }
+        if index + 1 >= BluetoothState.allCases.count {
+            index = 0
+        } else {
+            index += 1
+        }
+        
+        self.controller?.updateBluetooth(state: state)
+        
+        after(seconds: 1.5).done {
+            self.nextState(state: BluetoothState.allCases[index])
+        }
     }
     
     @objc private func bluetoothStateChanged(notification: Notification) {

@@ -15,7 +15,7 @@ extension NSNotification.Name {
     static let bluetoothStatusReceived = NSNotification.Name("BluetoothService.bluetoothStatusReceived")
 }
 
-enum BluetoothState: String {
+enum BluetoothState: String, CaseIterable {
     case unknown
     case poweredOff
     case poweredOn
