@@ -24,9 +24,10 @@ class HomeViewController: UIViewController, HomeController {
     @IBOutlet weak var movementLabel: UILabel!
     @IBOutlet weak var targetTextField: UITextField!
     @IBOutlet weak var stepper: UIStepper!
+    @IBOutlet weak var snappped: UISwitch!
     
     @IBOutlet weak var stateView: BluetoothStateView!
-    
+    @IBOutlet weak var previewView: PositionPreviewView!
     
     static func setup(interactor: HomeInteractor) -> HomeViewController {
         let controller: HomeViewController = UIStoryboard.home.instantiateViewController()
@@ -38,6 +39,7 @@ class HomeViewController: UIViewController, HomeController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.controllerLoaded()
+        previewView.delegate = self
         
         after(seconds: 4).done {
             self.hide()
@@ -73,17 +75,78 @@ class HomeViewController: UIViewController, HomeController {
     @IBAction func goButtonAction(_ sender: Any) {
         guard let positionText = targetTextField.text, let position = Int16(positionText) else { return }
         interactor.setTargetPosition(position: position)
+        previewView.setTargetPosition(Double(position)/429, animated: true)
     }
     
-    lazy var prev: Double = self.stepper.value
-    @IBAction func stepperChanged(_ sender: Any) {
-        stateView.setHidden(Int(stepper.value) % 2 == 0, animated: true)
-//        if stepper.value > prev {
-//            interactor.setTargetOneUp()
-//        } else {
-//            interactor.setTargetOneDown()
-//        }
-//
-//        prev = stepper.value
+    var pos: Double = 0
+    var tar: Double = 0
+    @IBAction func lowerPosAction(_ sender: Any) {
+        if pos <= tar { return }
+        pos -= 4
+        positionLabel.text = "\(pos) mm"
+        previewView.setCurrentPosition(pos / 429, animated: true)
     }
+    
+    @IBAction func lowerTarAction(_ sender: Any) {
+        if tar <= 0 { return }
+        tar -= 10
+        targetLabel.text = "\(pos) mm"
+        previewView.setTargetPosition(tar / 429, animated: true)
+    }
+    
+    @IBAction func upperPosAction(_ sender: Any) {
+        if pos >= tar { return }
+        pos += 4
+        positionLabel.text = "\(pos) mm"
+        previewView.setCurrentPosition(pos / 429, animated: true)
+    }
+    
+    @IBAction func upperTarAction(_ sender: Any) {
+        if tar >= 429 { return }
+        tar += 10
+        targetLabel.text = "\(pos) mm"
+        previewView.setTargetPosition(tar / 429, animated: true)
+    }
+
+    @IBAction func moveAction(_ sender: Any) {
+        simMove()
+    }
+    
+    func simMove() {
+        previewView.isMoving = snappped.isOn
+        guard snappped.isOn else { return }
+        
+        if tar > pos {
+            upperPosAction(snappped)
+        } else {
+            lowerPosAction(snappped)
+        }
+        let inter = Double(max(arc4random_uniform(5), 2)) / 10
+//        print(inter)
+        after(seconds: inter).done {
+            self.simMove()
+        }
+    }
+}
+
+extension HomeViewController: PositionPreviewViewDelegate {
+    
+    func previewView(didChange position: Double, snapped: Bool) {
+        targetLabel.text =  String(format: "%.2fmm", position * 429)
+        tar = position * 429
+    }
+    
+    func previewView(didApply position: Double, swiped: Bool) {
+        targetLabel.text =  String(format: "%.2fmm", position * 429)
+        tar = position * 429
+        print("didApply", tar)
+//        simMove()
+    }
+    
+    func previewView(didBeginChange position: Double) {
+        
+    }
+    
+    
+    
 }

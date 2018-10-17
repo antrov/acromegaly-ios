@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PositionPreviewView" customModule="Acromegaly" customModuleProvider="target">
+            <connections>
+                <outlet property="deskBottomImageView" destination="prp-Fi-Xjj" id="yds-iP-DKC"/>
+                <outlet property="deskTopImageView" destination="9cX-6F-SGJ" id="PCn-SC-MJq"/>
+                <outlet property="targetLineImageView" destination="zKY-j2-GDY" id="H3S-q4-7W1"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_room_background" translatesAutoresizingMaskIntoConstraints="NO" id="12X-x7-cZG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
+                </imageView>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_target_line" translatesAutoresizingMaskIntoConstraints="NO" id="zKY-j2-GDY">
+                    <rect key="frame" x="171" y="115" width="175" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="zKY-j2-GDY" secondAttribute="height" multiplier="348:111" id="TDl-a7-fYs"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="fG7-BV-P4J" appends="YES" id="OKc-fe-8yu"/>
+                    </connections>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_desk_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="prp-Fi-Xjj">
+                    <rect key="frame" x="171.5" y="161.5" width="174" height="143.5"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="prp-Fi-Xjj" secondAttribute="height" multiplier="348:287" id="EVS-RS-jNa"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_desk_top" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-6F-SGJ">
+                    <rect key="frame" x="171" y="43" width="175" height="165"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="9cX-6F-SGJ" secondAttribute="height" multiplier="175:165" id="d7a-J1-i3c"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="9cX-6F-SGJ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.466666" id="2or-tH-JrV"/>
+                <constraint firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" multiplier="0.725" id="41s-cu-Ymt"/>
+                <constraint firstAttribute="trailing" secondItem="12X-x7-cZG" secondAttribute="trailing" id="AMy-Mr-rrz"/>
+                <constraint firstAttribute="bottom" secondItem="zKY-j2-GDY" secondAttribute="bottom" constant="134" id="Di1-4W-WbO"/>
+                <constraint firstItem="12X-x7-cZG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IGk-RD-b6o"/>
+                <constraint firstItem="9cX-6F-SGJ" firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" id="NFe-hG-ilW"/>
+                <constraint firstItem="prp-Fi-Xjj" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.463382" id="PID-G4-fkX"/>
+                <constraint firstItem="12X-x7-cZG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RsP-Pq-1XU"/>
+                <constraint firstAttribute="bottom" secondItem="prp-Fi-Xjj" secondAttribute="bottom" id="SI5-K2-Han"/>
+                <constraint firstItem="zKY-j2-GDY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.466666" id="YrC-c1-wD4"/>
+                <constraint firstAttribute="bottom" secondItem="9cX-6F-SGJ" secondAttribute="bottom" constant="97" id="gA6-oh-OdM"/>
+                <constraint firstItem="zKY-j2-GDY" firstAttribute="trailing" secondItem="9cX-6F-SGJ" secondAttribute="trailing" id="jXW-s8-XCo"/>
+                <constraint firstAttribute="bottom" secondItem="12X-x7-cZG" secondAttribute="bottom" id="xfV-8c-Ryw"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="125.59999999999999" y="225.33733133433284"/>
+        </view>
+        <panGestureRecognizer minimumNumberOfTouches="1" id="fG7-BV-P4J">
+            <connections>
+                <action selector="panGestureAction:" destination="-1" id="FRO-fI-Xmf"/>
+            </connections>
+        </panGestureRecognizer>
+    </objects>
+    <resources>
+        <image name="img_desk_bottom" width="174" height="144"/>
+        <image name="img_desk_top" width="174" height="165"/>
+        <image name="img_room_background" width="376" height="306"/>
+        <image name="img_target_line" width="174" height="56"/>
+    </resources>
+</document>
