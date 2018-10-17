@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 final class BluetoothStateView: UIView {
     
     private var isHidding: Bool = false

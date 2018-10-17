@@ -14,6 +14,7 @@ protocol PositionPreviewViewDelegate: class {
     func previewView(didApply position: Double, swiped: Bool)
 }
 
+@IBDesignable
 final class PositionPreviewView: UIView, NibView {
     
     @IBOutlet weak var deskTopImageView: UIImageView!
@@ -37,6 +38,12 @@ final class PositionPreviewView: UIView, NibView {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        
+        setupNib()
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setupNib()
     }
@@ -89,6 +96,8 @@ final class PositionPreviewView: UIView, NibView {
         }
         
         setTranslation(translation, of: targetLineImageView, animated: snapped || swiped, bouncing: swiped)
+        
+        guard !isPanFinished else { return }
         delegate?.previewView(didChange: position, snapped: isSnapped)
     }
     
