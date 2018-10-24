@@ -35,7 +35,7 @@
 		AF6768E42164EFBD00DA2631 /* CharacteristicHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6768E32164EFBD00DA2631 /* CharacteristicHandler.swift */; };
 		AF94B17C216FB3C300FFFBE0 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF94B17B216FB3C300FFFBE0 /* UIView+Nib.swift */; };
 		AF94B17E216FD21100FFFBE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF94B17D216FD21100FFFBE0 /* Assets.xcassets */; };
-		AF958A9B2177ABF8008C9677 /* HeightInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF958A9A2177ABF8008C9677 /* HeightInputView.swift */; };
+		AF958A9B2177ABF8008C9677 /* HeightField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF958A9A2177ABF8008C9677 /* HeightField.swift */; };
 		AFAC5207215E9B5E00DD1194 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC5206215E9B5E00DD1194 /* ServiceLocator.swift */; };
 		AFAC5209215E9BA100DD1194 /* BluetoothService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFAC5208215E9BA100DD1194 /* BluetoothService.swift */; };
 		AFB0B9B12162C29B00F9E606 /* BluetoothCentralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */; };
@@ -76,7 +76,7 @@
 		AF6768E32164EFBD00DA2631 /* CharacteristicHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicHandler.swift; sourceTree = "<group>"; };
 		AF94B17B216FB3C300FFFBE0 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+Nib.swift"; path = "acromegaly/Utils/Extensions/UIView+Nib.swift"; sourceTree = SOURCE_ROOT; };
 		AF94B17D216FD21100FFFBE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "acromegaly/Supporting Files/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
-		AF958A9A2177ABF8008C9677 /* HeightInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightInputView.swift; path = acromegaly/Modules/Home/Scenes/Home/Views/HeightInputView.swift; sourceTree = SOURCE_ROOT; };
+		AF958A9A2177ABF8008C9677 /* HeightField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeightField.swift; path = acromegaly/Modules/Home/Scenes/Home/Views/HeightField.swift; sourceTree = SOURCE_ROOT; };
 		AFAC5206215E9B5E00DD1194 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 		AFAC5208215E9BA100DD1194 /* BluetoothService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothService.swift; sourceTree = "<group>"; };
 		AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCentralDelegate.swift; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				AF0A9080216D579D00BEB319 /* BluetoothStateView.swift */,
-				AF958A9A2177ABF8008C9677 /* HeightInputView.swift */,
+				AF958A9A2177ABF8008C9677 /* HeightField.swift */,
 				AF24D7FB216F354400A6943F /* PositionPreviewView.swift */,
 				AF24D7FD216F363C00A6943F /* PositionPreviewView.xib */,
 			);
@@ -398,7 +398,7 @@
 				AF0C5CCA215E4B3100BD69F6 /* TabBarWrapper.swift in Sources */,
 				AF0E2F23216E89CE000B8359 /* UIView+Reusable.swift in Sources */,
 				AF0C5CE9215E689700BD69F6 /* HomeInteractor.swift in Sources */,
-				AF958A9B2177ABF8008C9677 /* HeightInputView.swift in Sources */,
+				AF958A9B2177ABF8008C9677 /* HeightField.swift in Sources */,
 				AFAC5207215E9B5E00DD1194 /* ServiceLocator.swift in Sources */,
 				AF6768E22164EF4800DA2631 /* StatusValue.swift in Sources */,
 				AF0C5CDE215E5D6200BD69F6 /* Storyboard.swift in Sources */,

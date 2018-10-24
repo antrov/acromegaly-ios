@@ -16,4 +16,6 @@ extension UIColor {
     
     static let turquoise = #colorLiteral(red: 0.4076851038, green: 0.8547082441, blue: 0.7259655796, alpha: 1)
     
+    static let disabledGray = #colorLiteral(red: 0.7058823529, green: 0.7058823529, blue: 0.7058823529, alpha: 1)
+    
 }

@@ -11,7 +11,7 @@ import UIKit
 protocol PositionPreviewViewDelegate: class {
     func previewView(didBeginChange position: Double)
     func previewView(didChange position: Double, snapped: Bool)
-    func previewView(didApply position: Double, swiped: Bool)
+    func previewView(didApply position: Double, swiped: Bool, snapped: Bool)
 }
 
 @IBDesignable
@@ -51,13 +51,19 @@ final class PositionPreviewView: UIView, NibView {
     func setCurrentPosition(_ position: Double, animated: Bool) {
         let duration: TimeInterval? = isMoving ? 0.5 : nil
         
-        currentPos = CGFloat(position)
+        currentPos = CGFloat(1 - position)
         setTranslation(currentPos * fullTranslationY, of: deskTopImageView, animated: animated, duration: duration, linear: isMoving)
     }
     
     func setTargetPosition(_ position: Double, animated: Bool) {
-        targetPos = CGFloat(position)
-        setTranslation(targetPos * fullTranslationY, of: targetLineImageView, animated: animated)
+        print("previewView setTargetP{Osition \(position) with finished \(isPanFinished)")
+        guard isPanFinished else { return }
+        targetPos = CGFloat(1 - position)
+        
+        let translation = targetPos * fullTranslationY
+        
+        panInitialValue = translation
+        setTranslation(translation, of: targetLineImageView, animated: animated)
     }
     
     @IBAction func panGestureAction(_ sender: Any) {
@@ -67,6 +73,7 @@ final class PositionPreviewView: UIView, NibView {
         if panGesture.state == .began {
             delegate?.previewView(didBeginChange: Double(targetPos))
             isPanFinished = false
+            isSnapped = true
         }
         
         let velocity = panGesture.velocity(in: self).y
@@ -78,7 +85,7 @@ final class PositionPreviewView: UIView, NibView {
         if swiped {
             translation = velocity < 0 ? 0 : fullTranslationY
         } else if snapped {
-            translation = currentPos * fullTranslationY
+            translation = targetPos * fullTranslationY
         }
         
         let position = Double(translation / fullTranslationY)
@@ -86,7 +93,7 @@ final class PositionPreviewView: UIView, NibView {
         if panGesture.state == .ended || swiped {
             isPanFinished = true
             panInitialValue = translation
-            delegate?.previewView(didApply: position, swiped: swiped)
+            delegate?.previewView(didApply: 1 - position, swiped: swiped, snapped: snapped)
         } else if snapped != isSnapped {
             isSnapped = snapped
             
@@ -98,7 +105,7 @@ final class PositionPreviewView: UIView, NibView {
         setTranslation(translation, of: targetLineImageView, animated: snapped || swiped, bouncing: swiped)
         
         guard !isPanFinished else { return }
-        delegate?.previewView(didChange: position, snapped: isSnapped)
+        delegate?.previewView(didChange: 1 - position, snapped: isSnapped)
     }
     
     private func setTranslation(_ translationY: CGFloat, of view: UIView, animated: Bool, bouncing: Bool = false, duration: TimeInterval? = nil, linear: Bool = false) {

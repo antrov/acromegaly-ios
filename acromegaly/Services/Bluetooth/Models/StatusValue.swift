@@ -9,7 +9,12 @@
 import Foundation
 
 struct StatusValue {
-    let position: Int32
-    let target: Int32
+    /// Current desk position, expressed in millimeters
+    let position: Int
+    
+    /// Current desk target, expressed in millimeters. If equal 0 with ative movement, means target with extremum position
+    let target: Int
+    
+    let targetType: BluetoothConstants.CurrentTargetType
     let movement: BluetoothConstants.MovementType
 }

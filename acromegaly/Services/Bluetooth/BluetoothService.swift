@@ -25,7 +25,7 @@ enum BluetoothState: String, CaseIterable {
 }
 
 enum TargetPoisition {
-    case exact(mm: Int16)
+    case exact(mm: Int)
     case maximum
     case minimum
 }
@@ -87,7 +87,7 @@ final class BluetoothServiceImpl: NSObject, BluetoothService {
         case .minimum:
             return writeControl(command: .setExtremumTarget, value: [BluetoothConstants.ExtremumPosition.bottom])
         case .exact(let mm):
-            return writeControl(command: .setTarget, value: mm)
+            return writeControl(command: .setTarget, value: Int16(mm))
         }
     }
     

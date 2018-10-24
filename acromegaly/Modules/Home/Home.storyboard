@@ -18,81 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eM4-83-ugZ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xc0-rA-Ued" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-Rj-6oV" customClass="PositionPreviewView" customModule="Acromegaly" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="mVQ-Rj-6oV" secondAttribute="height" multiplier="375:305" id="SXF-Ey-EXp"/>
-                                                </constraints>
-                                            </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-o9-ODi">
-                                                <rect key="frame" x="0.0" y="305" width="375" height="128"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9C-wC-PPX">
-                                                        <rect key="frame" x="49.5" y="51.5" width="25" height="25"/>
-                                                        <state key="normal" image="btn_down"/>
-                                                    </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-om-GnU" customClass="HeightInputView" customModule="Acromegaly" customModuleProvider="target">
-                                                        <rect key="frame" x="98.5" y="32" width="176.5" height="64"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="64" id="6dg-Cg-v7t"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-su-sdt">
-                                                        <rect key="frame" x="299" y="51.5" width="25" height="25"/>
-                                                        <state key="normal" image="btn_up"/>
-                                                    </button>
-                                                    <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-jS-mDB">
-                                                        <rect key="frame" x="16" y="127" width="343" height="1"/>
-                                                        <color key="backgroundColor" red="0.19607843137254902" green="0.57647058823529407" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="CYQ-V5-31t"/>
-                                                        </constraints>
-                                                    </view>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="Lfa-om-GnU" firstAttribute="leading" secondItem="S9C-wC-PPX" secondAttribute="trailing" constant="24" id="1rl-JI-G83"/>
-                                                    <constraint firstItem="Lfa-om-GnU" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="5K9-2D-HhH"/>
-                                                    <constraint firstAttribute="bottom" secondItem="MoE-jS-mDB" secondAttribute="bottom" id="9Ux-5f-iVi"/>
-                                                    <constraint firstItem="MoE-jS-mDB" firstAttribute="leading" secondItem="c6G-o9-ODi" secondAttribute="leading" constant="16" id="HNx-6H-hbT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="MoE-jS-mDB" secondAttribute="trailing" constant="16" id="Hkk-Gz-fex"/>
-                                                    <constraint firstItem="S9C-wC-PPX" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="I6S-nG-C3j"/>
-                                                    <constraint firstItem="uPw-su-sdt" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="JKg-o8-edm"/>
-                                                    <constraint firstItem="S9C-wC-PPX" firstAttribute="centerX" secondItem="c6G-o9-ODi" secondAttribute="centerX" multiplier="0.33" id="M1P-Ag-DSm"/>
-                                                    <constraint firstItem="uPw-su-sdt" firstAttribute="leading" secondItem="Lfa-om-GnU" secondAttribute="trailing" constant="24" id="OfK-QN-XyV"/>
-                                                    <constraint firstAttribute="height" constant="128" id="aDN-8m-Zch"/>
-                                                    <constraint firstItem="uPw-su-sdt" firstAttribute="centerX" secondItem="c6G-o9-ODi" secondAttribute="centerX" multiplier="1.66" id="wX8-k7-8IZ"/>
-                                                </constraints>
-                                            </view>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="c6G-o9-ODi" secondAttribute="trailing" id="8Hy-Ca-ZOF"/>
-                                            <constraint firstItem="c6G-o9-ODi" firstAttribute="leading" secondItem="xc0-rA-Ued" secondAttribute="leading" id="DWe-Nz-w20"/>
-                                            <constraint firstAttribute="trailing" secondItem="mVQ-Rj-6oV" secondAttribute="trailing" id="MRp-4B-Q30"/>
-                                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="top" secondItem="xc0-rA-Ued" secondAttribute="top" id="Qhh-Da-SMD"/>
-                                            <constraint firstItem="c6G-o9-ODi" firstAttribute="top" secondItem="mVQ-Rj-6oV" secondAttribute="bottom" id="akq-TU-7VR"/>
-                                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="leading" secondItem="xc0-rA-Ued" secondAttribute="leading" id="gSi-NC-Mla"/>
-                                        </constraints>
-                                    </view>
-                                </subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVQ-Rj-6oV" customClass="PositionPreviewView" customModule="Acromegaly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="78" width="375" height="305"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xc0-rA-Ued" secondAttribute="bottom" id="Vsc-Yg-v9U"/>
-                                    <constraint firstItem="xc0-rA-Ued" firstAttribute="leading" secondItem="eM4-83-ugZ" secondAttribute="leading" id="WR1-e8-XRU"/>
-                                    <constraint firstItem="xc0-rA-Ued" firstAttribute="top" secondItem="eM4-83-ugZ" secondAttribute="top" id="X9A-4j-Xqd"/>
-                                    <constraint firstItem="xc0-rA-Ued" firstAttribute="width" secondItem="eM4-83-ugZ" secondAttribute="width" id="YJa-XT-Gct"/>
-                                    <constraint firstItem="xc0-rA-Ued" firstAttribute="height" secondItem="eM4-83-ugZ" secondAttribute="height" id="lsD-jQ-nRc"/>
-                                    <constraint firstAttribute="trailing" secondItem="xc0-rA-Ued" secondAttribute="trailing" id="uUt-gw-dcH"/>
+                                    <constraint firstAttribute="width" secondItem="mVQ-Rj-6oV" secondAttribute="height" multiplier="375:305" id="SXF-Ey-EXp"/>
                                 </constraints>
-                            </scrollView>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpu-Pk-s5I" customClass="BluetoothStateView" customModule="Acromegaly" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="24"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,34 +43,119 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-o9-ODi" userLabel="Height Form View">
+                                <rect key="frame" x="0.0" y="383" width="375" height="128"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S9C-wC-PPX" userLabel="Decrement Target Button">
+                                        <rect key="frame" x="49.5" y="51.5" width="25" height="25"/>
+                                        <state key="normal" image="btn_down_enabled"/>
+                                        <state key="disabled" image="btn_down_disabled"/>
+                                        <connections>
+                                            <action selector="decrementTargetButtonAction:" destination="8vT-oE-1C9" eventType="touchUpInside" id="Zn3-Fl-o5v"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lfa-om-GnU" customClass="HeightField" customModule="Acromegaly" customModuleProvider="target">
+                                        <rect key="frame" x="110.5" y="32" width="152.5" height="64"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="64" id="6dg-Cg-v7t"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPw-su-sdt" userLabel="Increment Target Button">
+                                        <rect key="frame" x="299" y="51.5" width="25" height="25"/>
+                                        <state key="normal" image="btn_up_enabled"/>
+                                        <state key="disabled" image="btn_up_disabled"/>
+                                        <connections>
+                                            <action selector="incrementTargetButtonAction:" destination="8vT-oE-1C9" eventType="touchUpInside" id="GSD-8U-T74"/>
+                                        </connections>
+                                    </button>
+                                    <view alpha="0.14999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MoE-jS-mDB" userLabel="Separator View">
+                                        <rect key="frame" x="16" y="127" width="343" height="1"/>
+                                        <color key="backgroundColor" red="0.19607843137254902" green="0.57647058823529407" blue="0.5725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="CYQ-V5-31t"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Lfa-om-GnU" firstAttribute="leading" secondItem="S9C-wC-PPX" secondAttribute="trailing" constant="36" id="1rl-JI-G83"/>
+                                    <constraint firstItem="Lfa-om-GnU" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="5K9-2D-HhH"/>
+                                    <constraint firstAttribute="bottom" secondItem="MoE-jS-mDB" secondAttribute="bottom" id="9Ux-5f-iVi"/>
+                                    <constraint firstItem="MoE-jS-mDB" firstAttribute="leading" secondItem="c6G-o9-ODi" secondAttribute="leading" constant="16" id="HNx-6H-hbT"/>
+                                    <constraint firstAttribute="trailing" secondItem="MoE-jS-mDB" secondAttribute="trailing" constant="16" id="Hkk-Gz-fex"/>
+                                    <constraint firstItem="S9C-wC-PPX" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="I6S-nG-C3j"/>
+                                    <constraint firstItem="uPw-su-sdt" firstAttribute="centerY" secondItem="c6G-o9-ODi" secondAttribute="centerY" id="JKg-o8-edm"/>
+                                    <constraint firstItem="S9C-wC-PPX" firstAttribute="centerX" secondItem="c6G-o9-ODi" secondAttribute="centerX" multiplier="0.33" id="M1P-Ag-DSm"/>
+                                    <constraint firstItem="uPw-su-sdt" firstAttribute="leading" secondItem="Lfa-om-GnU" secondAttribute="trailing" constant="36" id="OfK-QN-XyV"/>
+                                    <constraint firstAttribute="height" constant="128" id="aDN-8m-Zch"/>
+                                    <constraint firstItem="uPw-su-sdt" firstAttribute="centerX" secondItem="c6G-o9-ODi" secondAttribute="centerX" multiplier="1.66" id="wX8-k7-8IZ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eM4-83-ugZ" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" id="2F0-1v-sjO"/>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" id="2wM-MQ-q9m"/>
-                            <constraint firstItem="MhE-3w-kKP" firstAttribute="trailing" secondItem="eM4-83-ugZ" secondAttribute="trailing" id="7Pb-kR-n7e"/>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="trailing" secondItem="T18-He-AVy" secondAttribute="trailing" id="AVG-Xf-4a2"/>
-                            <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" secondItem="eM4-83-ugZ" secondAttribute="bottom" id="LVu-xt-AvN"/>
+                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" priority="750" constant="14" id="CA8-q1-G74"/>
+                            <constraint firstItem="c6G-o9-ODi" firstAttribute="top" secondItem="mVQ-Rj-6oV" secondAttribute="bottom" id="CEr-sX-5n7"/>
+                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="trailing" secondItem="MhE-3w-kKP" secondAttribute="trailing" id="Ihn-mt-OcV"/>
+                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="T0d-rV-WC3"/>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="leading" secondItem="T18-He-AVy" secondAttribute="leading" id="Uiz-aS-7MC"/>
-                            <constraint firstItem="eM4-83-ugZ" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="W9w-e6-bpF"/>
+                            <constraint firstItem="c6G-o9-ODi" firstAttribute="trailing" secondItem="MhE-3w-kKP" secondAttribute="trailing" id="cZY-TV-pav"/>
+                            <constraint firstItem="c6G-o9-ODi" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="zoz-i7-f6E"/>
+                            <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MoE-jS-mDB" secondAttribute="top" id="zpc-BD-6xB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MhE-3w-kKP"/>
                     </view>
                     <navigationItem key="navigationItem" title="Acromegaly" id="d0O-q2-b4O"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
-                        <outlet property="heightInputView" destination="Lfa-om-GnU" id="pbd-yY-tN4"/>
+                        <outlet property="decrementTargetButton" destination="S9C-wC-PPX" id="XZt-RB-LMn"/>
+                        <outlet property="heightAccessoryView" destination="Vzu-TE-qgh" id="8cw-I3-LWG"/>
+                        <outlet property="heightField" destination="Lfa-om-GnU" id="SUk-ai-gbH"/>
+                        <outlet property="heightInputConstraint" destination="zpc-BD-6xB" id="wGq-mY-1qr"/>
+                        <outlet property="heightPickerView" destination="Nvk-CQ-4Lz" id="3wy-zV-4nY"/>
+                        <outlet property="incrementTargetButton" destination="uPw-su-sdt" id="Vp1-bu-YHS"/>
                         <outlet property="previewView" destination="mVQ-Rj-6oV" id="Rik-86-bBa"/>
                         <outlet property="stateView" destination="Hpu-Pk-s5I" id="Rik-86-bBb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="czx-1h-MXY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pickerView contentMode="scaleToFill" id="Nvk-CQ-4Lz">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="216"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                    <connections>
+                        <outlet property="dataSource" destination="8vT-oE-1C9" id="rn3-kB-ga7"/>
+                        <outlet property="delegate" destination="8vT-oE-1C9" id="WbN-Vo-9Ta"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Vzu-TE-qgh">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="cancel" id="Sq3-Wn-FAW">
+                            <connections>
+                                <action selector="heightInputCancelAction:" destination="8vT-oE-1C9" id="mWl-Jf-XXj"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Pke-36-bwV"/>
+                        <barButtonItem style="done" systemItem="done" id="nfW-1x-FZJ">
+                            <connections>
+                                <action selector="heightInputDoneAction:" destination="8vT-oE-1C9" id="2hK-NL-UYi"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="128.80000000000001" y="-87.706146926536732"/>
         </scene>
     </scenes>
     <resources>
-        <image name="btn_down" width="25" height="25"/>
-        <image name="btn_up" width="25" height="25"/>
+        <image name="btn_down_disabled" width="25" height="25"/>
+        <image name="btn_down_enabled" width="25" height="25"/>
+        <image name="btn_up_disabled" width="25" height="25"/>
+        <image name="btn_up_enabled" width="25" height="25"/>
     </resources>
 </document>

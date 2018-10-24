@@ -33,6 +33,13 @@ struct BluetoothConstants {
         case setExtremumTarget = 0x88
     }
     
+    enum CurrentTargetType: UInt8 {
+        case noTarget = 0
+        case exactValue = 2
+        case extremumMin = 4
+        case extremumMax = 8
+    }
+    
     struct ExtremumPosition {
         static let bottom: UInt8 = 0xDD
         static let top: UInt8 = 0xFF

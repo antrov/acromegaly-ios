@@ -71,11 +71,15 @@ extension BluetoothServiceImpl {
     // MARK: Response
     
     func didReceiveStatus(data: Data, asSubscription subscription: Bool) {
-        guard data.count == 9, let movement = BluetoothConstants.MovementType(rawValue: data[8]) else { return }
+        guard
+            let movement = BluetoothConstants.MovementType(rawValue: data[5]),
+            let targetType = BluetoothConstants.CurrentTargetType(rawValue: data[4])
+            else { return }
         
-        let position = Int32(littleEndian: data.withUnsafeBytes { $0.pointee })
-        let target = Int32(littleEndian: data.withUnsafeBytes { $0.advanced(by: 1).pointee })
-        let statusValue = StatusValue(position: position, target: target, movement: movement)
+        let position = Int16(littleEndian: data.withUnsafeBytes { $0.pointee })
+        let target = Int16(littleEndian: data.withUnsafeBytes { $0.advanced(by: 1).pointee })
+        
+        let statusValue = StatusValue(position: Int(position), target: Int(target),  targetType: targetType, movement: movement)
       
         guard !subscription else { notifyStatusValue(statusValue); return }
         guard let pending = handlers[.statusChar]?.pending, pending.promise.isPending else { return }

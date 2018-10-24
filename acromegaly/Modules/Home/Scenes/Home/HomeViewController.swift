@@ -11,16 +11,30 @@ import PromiseKit
 
 protocol HomeController: class {
     func updateBluetooth(state: BluetoothState)
-    func updateStatuts(_ statusValue: StatusValue)
+    func updateTargetState(_ state: TargetPositionState)
+    func updateTargetPosition(_ value: Int, scale: Double, animated: Bool)
+    func updateCurrentPosition(_ value: Int, scale: Double, animated: Bool)
+    func updateMovingState(_ isMoving: Bool)
+    func updateHeightPickerItems(_ items: [Int], selectedIndex: Int)
 }
 
 class HomeViewController: UIViewController, HomeController {
     
-    private var interactor: HomeInteractor!
-    
     @IBOutlet weak var stateView: BluetoothStateView!
     @IBOutlet weak var previewView: PositionPreviewView!
-    @IBOutlet weak var heightInputView: HeightInputView!
+    @IBOutlet weak var heightField: HeightField!
+    @IBOutlet weak var heightInputConstraint: NSLayoutConstraint!
+    @IBOutlet weak var decrementTargetButton: UIButton!
+    @IBOutlet weak var incrementTargetButton: UIButton!    
+    
+    @IBOutlet var heightPickerView: UIPickerView!
+    @IBOutlet var heightAccessoryView: UIToolbar!
+    
+    private var interactor: HomeInteractor!
+    
+    private var isEnabled: Bool = true
+    private var heightPickerItems: [Int]?
+    private var statusViewHiddingPromise: (promise: Promise<Void>, resolver: Resolver<Void>)?
     
     static func setup(interactor: HomeInteractor) -> HomeViewController {
         let controller: HomeViewController = UIStoryboard.home.instantiateViewController()
@@ -34,116 +48,131 @@ class HomeViewController: UIViewController, HomeController {
         interactor.controllerLoaded()
         previewView.delegate = self
         
-        after(seconds: 4).done {
-            self.hide()
+        heightField.inputPickerView = heightPickerView
+        heightField.inputAccessoryToolbar = heightAccessoryView
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification(_:)), name: UIWindow.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    private func setViewEnabled(_ enabled: Bool, animated: Bool) {
+        guard enabled != isEnabled else { return }
+        
+        isEnabled = enabled
+        
+        heightField.isUserInteractionEnabled = enabled
+        previewView.isUserInteractionEnabled = enabled
+        incrementTargetButton.isEnabled = enabled
+        decrementTargetButton.isEnabled = enabled
+    }
+    
+    // MARK: Notifications
+    
+    @objc private func keyboardWillChangeFrameNotification(_ notification: Notification) {
+        guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        heightInputConstraint.constant = view.bounds.height - frame.origin.y
+        
+        UIView.animate(withDuration: 0.2) {
+            self.view.layoutIfNeeded()
         }
     }
     
-    func hide() {
-//        stateView.setHidden(arc4random() % 2 == 0, animated: true)
-        after(seconds: 2.25).done {
-            self.hide()
-        }
+    // MARK: HomeController
+    
+    func updateHeightPickerItems(_ items: [Int], selectedIndex: Int) {
+        heightPickerItems = items
+        heightPickerView.selectRow(selectedIndex, inComponent: 0, animated: false)
     }
     
     func updateBluetooth(state: BluetoothState) {
-//        bleStatusLabel.text = state.rawValue
         stateView.setState(state)
+        stateView.setHidden(state == .connected)
+        setViewEnabled(state == .connected, animated: true)
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = state != .connected
+//        statusViewHiddingPromise?.resolver.reject(PMKError.cancelled)
+//
+//        guard case .connected = state else { return }
+//        statusViewHiddingPromise = Promise.pending()
+//
     }
     
-    func updateStatuts(_ statusValue: StatusValue) {
-//        positionLabel.text = "\(statusValue.position / 1000) mm"
-//        targetLabel.text = "\(statusValue.target / 1000) mm"
-//
-//        switch statusValue.movement {
-//        case .down:
-//            movementLabel.text = "down"
-//        case .up:
-//            movementLabel.text = "up"
-//        case .none:
-//            movementLabel.text = "none"
-//        }
+    func updateTargetPosition(_ value: Int, scale: Double, animated: Bool) {
+        heightField.setValue(value, animated: animated)
+        previewView.setTargetPosition(scale, animated: animated)
     }
     
-//    @IBAction func goButtonAction(_ sender: Any) {
-//        guard let positionText = targetTextField.text, let position = Int16(positionText) else { return }
-//        interactor.setTargetPosition(position: position)
-//        previewView.setTargetPosition(Double(position)/429, animated: true)
-//    }
-//
-//    var pos: Double = 0
-//    var tar: Double = 0
-//    @IBAction func lowerPosAction(_ sender: Any) {
-//        if pos <= tar { return }
-//        pos -= 4
-//        positionLabel.text = "\(pos) mm"
-//        previewView.setCurrentPosition(pos / 429, animated: true)
-//    }
-//
-//    @IBAction func lowerTarAction(_ sender: Any) {
-//        if tar <= 0 { return }
-//        tar -= 10
-//        targetLabel.text = "\(pos) mm"
-//        previewView.setTargetPosition(tar / 429, animated: true)
-//    }
-//
-//    @IBAction func upperPosAction(_ sender: Any) {
-//        if pos >= tar { return }
-//        pos += 4
-//        positionLabel.text = "\(pos) mm"
-//        previewView.setCurrentPosition(pos / 429, animated: true)
-//    }
-//
-//    @IBAction func upperTarAction(_ sender: Any) {
-//        if tar >= 429 { return }
-//        tar += 10
-//        targetLabel.text = "\(pos) mm"
-//        previewView.setTargetPosition(tar / 429, animated: true)
-//    }
-//
-//    @IBAction func moveAction(_ sender: Any) {
-//        simMove()
-//    }
-//
-//    func simMove() {
-//        previewView.isMoving = snappped.isOn
-//        guard snappped.isOn else { return }
-//
-//        if tar > pos {
-//            upperPosAction(snappped)
-//        } else {
-//            lowerPosAction(snappped)
-//        }
-//        let inter = Double(max(arc4random_uniform(5), 2)) / 10
-////        print(inter)
-//        after(seconds: inter).done {
-//            self.simMove()
-//        }
-//    }
+    func updateCurrentPosition(_ value: Int, scale: Double, animated: Bool) {
+        previewView.setCurrentPosition(scale, animated: animated)
+    }
+    
+    func updateMovingState(_ isMoving: Bool) {
+        previewView.isMoving = isMoving
+    }
+    
+    func updateTargetState(_ state: TargetPositionState) {
+        heightField.setHighlighted(state == .isEditing, animated: true)
+        setViewEnabled(state != .isApplying, animated: true)
+        
+        UIApplication.shared.isNetworkActivityIndicatorVisible = state == .isApplying
+    }
+    
+    // MARK: Actions
+    
+    @IBAction func heightInputCancelAction(_ sender: Any) {
+        _ = heightField.resignFirstResponder()
+    }
+    
+    @IBAction func heightInputDoneAction(_ sender: Any) {
+        _ = heightField.resignFirstResponder()
+        
+        let selectedRow = heightPickerView.selectedRow(inComponent: 0)
+        let value = heightPickerItems?[selectedRow] ?? 0
+        
+        interactor.setTargetPosition(withValue: value)
+    }
+    
+    @IBAction func incrementTargetButtonAction(_ sender: Any) {
+        interactor.incrementTargetPosition()
+    }
+    
+    @IBAction func decrementTargetButtonAction(_ sender: Any) {
+        interactor.decrementTargetPosition()
+    }
 }
 
 extension HomeViewController: PositionPreviewViewDelegate {
     
     func previewView(didChange position: Double, snapped: Bool) {
-        heightInputView.setValue("\(Int(position * 429))", animated: snapped)
-        heightInputView.setHighlighted(!snapped, animated: true)
-//        targetLabel.text =  String(format: "%.2fmm", position * 429)
-//        tar = position * 429
+        interactor.setTargetPosition(withScale: position)
     }
     
-    func previewView(didApply position: Double, swiped: Bool) {
-        heightInputView.setValue("\(Int(position * 429))", animated: swiped)
-        heightInputView.setHighlighted(false, animated: true)
-//        targetLabel.text =  String(format: "%.2fmm", position * 429)
-//        tar = position * 429
-//        print("didApply", tar)
-////        simMove()
+    func previewView(didApply position: Double, swiped: Bool, snapped: Bool) {
+        interactor.isTargetEditing = false
+        
+        guard !snapped else { return }
+        interactor.setTargetPosition(withScale: position)
     }
     
     func previewView(didBeginChange position: Double) {
-        heightInputView.setHighlighted(true, animated: true)
+        interactor.isTargetEditing = true
+    }   
+    
+}
+
+extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return heightPickerItems?.count ?? 0
+    }
     
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        guard let value = heightPickerItems?[row] else { return nil }
+        return "\(value) mm"
+    }    
     
 }
