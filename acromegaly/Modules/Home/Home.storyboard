@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -92,19 +92,54 @@
                                     <constraint firstItem="uPw-su-sdt" firstAttribute="centerX" secondItem="c6G-o9-ODi" secondAttribute="centerX" multiplier="1.66" id="wX8-k7-8IZ"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zMv-vD-xHp">
+                                <rect key="frame" x="0.0" y="519" width="375" height="140"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Mu6-Nl-LQL">
+                                        <rect key="frame" x="0.0" y="10" width="375" height="120"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="120" id="FfS-JO-9To"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Klf-jz-jmf">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="8vT-oE-1C9" id="5hZ-qu-Yua"/>
+                                            <outlet property="delegate" destination="8vT-oE-1C9" id="kfm-cC-ec5"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Mu6-Nl-LQL" firstAttribute="centerY" secondItem="zMv-vD-xHp" secondAttribute="centerY" id="1Vt-Bu-fjT"/>
+                                    <constraint firstItem="Mu6-Nl-LQL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zMv-vD-xHp" secondAttribute="top" id="Crr-mW-uRr"/>
+                                    <constraint firstItem="Mu6-Nl-LQL" firstAttribute="leading" secondItem="zMv-vD-xHp" secondAttribute="leading" id="Enl-Jd-JjA"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mu6-Nl-LQL" secondAttribute="trailing" id="KhB-dQ-xDN"/>
+                                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Mu6-Nl-LQL" secondAttribute="bottom" id="epa-Nf-gwG"/>
+                                    <constraint firstItem="Mu6-Nl-LQL" firstAttribute="top" relation="lessThanOrEqual" secondItem="zMv-vD-xHp" secondAttribute="top" constant="32" id="kWZ-TZ-zad"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" id="2wM-MQ-q9m"/>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="trailing" secondItem="T18-He-AVy" secondAttribute="trailing" id="AVG-Xf-4a2"/>
-                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" priority="750" constant="14" id="CA8-q1-G74"/>
+                            <constraint firstItem="mVQ-Rj-6oV" firstAttribute="top" secondItem="MhE-3w-kKP" secondAttribute="top" constant="14" id="CA8-q1-G74"/>
                             <constraint firstItem="c6G-o9-ODi" firstAttribute="top" secondItem="mVQ-Rj-6oV" secondAttribute="bottom" id="CEr-sX-5n7"/>
+                            <constraint firstItem="zMv-vD-xHp" firstAttribute="top" secondItem="c6G-o9-ODi" secondAttribute="bottom" constant="8" id="DX0-3T-rph"/>
                             <constraint firstItem="mVQ-Rj-6oV" firstAttribute="trailing" secondItem="MhE-3w-kKP" secondAttribute="trailing" id="Ihn-mt-OcV"/>
+                            <constraint firstItem="zMv-vD-xHp" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="P7g-4f-Rqo"/>
                             <constraint firstItem="mVQ-Rj-6oV" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="T0d-rV-WC3"/>
                             <constraint firstItem="Hpu-Pk-s5I" firstAttribute="leading" secondItem="T18-He-AVy" secondAttribute="leading" id="Uiz-aS-7MC"/>
                             <constraint firstItem="c6G-o9-ODi" firstAttribute="trailing" secondItem="MhE-3w-kKP" secondAttribute="trailing" id="cZY-TV-pav"/>
+                            <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" secondItem="zMv-vD-xHp" secondAttribute="bottom" constant="8" id="eR8-BU-qfh"/>
+                            <constraint firstItem="MhE-3w-kKP" firstAttribute="trailing" secondItem="zMv-vD-xHp" secondAttribute="trailing" id="jWf-Fb-B3n"/>
                             <constraint firstItem="c6G-o9-ODi" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="zoz-i7-f6E"/>
-                            <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MoE-jS-mDB" secondAttribute="top" id="zpc-BD-6xB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MhE-3w-kKP"/>
                     </view>
@@ -112,9 +147,11 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="decrementTargetButton" destination="S9C-wC-PPX" id="XZt-RB-LMn"/>
+                        <outlet property="favouritesCollectionLayout" destination="Klf-jz-jmf" id="l9L-JP-hzj"/>
+                        <outlet property="favouritesCollectionView" destination="Mu6-Nl-LQL" id="T0w-SM-fQ0"/>
+                        <outlet property="favouritesHeightContraint" destination="FfS-JO-9To" id="ktB-xB-2xT"/>
                         <outlet property="heightAccessoryView" destination="Vzu-TE-qgh" id="8cw-I3-LWG"/>
                         <outlet property="heightField" destination="Lfa-om-GnU" id="SUk-ai-gbH"/>
-                        <outlet property="heightInputConstraint" destination="zpc-BD-6xB" id="wGq-mY-1qr"/>
                         <outlet property="heightPickerView" destination="Nvk-CQ-4Lz" id="3wy-zV-4nY"/>
                         <outlet property="incrementTargetButton" destination="uPw-su-sdt" id="Vp1-bu-YHS"/>
                         <outlet property="previewView" destination="mVQ-Rj-6oV" id="Rik-86-bBa"/>

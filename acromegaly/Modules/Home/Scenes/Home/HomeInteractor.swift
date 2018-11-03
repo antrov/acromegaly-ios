@@ -19,6 +19,8 @@ protocol HomeInteractor: class {
     func setTargetPosition(withScale scale: Double)
     func incrementTargetPosition()
     func decrementTargetPosition()
+    func favouriteAction(at index: Int)
+    func favouriteContextAction(at index: Int)
 }
 
 enum TargetPositionState {
@@ -33,12 +35,14 @@ final class HomeInteractorImpl: HomeInteractor {
     
     private let coordinator: HomeCoordinator
     private lazy var bluetoothService: BluetoothService = ServiceLocator.inject()
+    private lazy var favouritesService: FavouritesService = ServiceLocator.inject()
     
     private let positionChangeStep: Int = 5
     private let positionBaseValue: Int = 834
     private let positionSlideValue: Int = 429
     
     private var targetValue: Int?
+    private var favouriteValues: [Int?]?
     
     var isTargetEditing: Bool {
         get {
@@ -63,11 +67,13 @@ final class HomeInteractorImpl: HomeInteractor {
     
     func controllerLoaded() {
         setupTargetPossibleValues()
+        setupFavouriteItems()
         
         bluetoothService.connect()
         
         NotificationCenter.default.addObserver(self, selector: #selector(bluetoothStateChanged), name: .bluetoothStateChanged, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(bluetoothStatusReceived), name: .bluetoothStatusReceived, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(favouritesUpdated), name: .favouritesUpdated, object: nil)
     }
     
     // MARK: HomeInteractor
@@ -106,6 +112,28 @@ final class HomeInteractorImpl: HomeInteractor {
         setTargetPosition(withValue: target - positionChangeStep)
     }
     
+    func favouriteAction(at index: Int) {
+        guard let favourites = favouriteValues else { return }
+        
+        if let value = favourites[index] {
+            setTargetPosition(withValue: value)
+        } else if let target = targetValue {
+            favouritesService.setFavourite(target, at: index)
+        }
+    }
+    
+    func favouriteContextAction(at index: Int) {
+        guard let favouriteValue = favouriteValues?[index] else { return }
+        
+        firstly {
+            coordinator.showFavouriteMenu(for: favouriteValue)
+        }
+        .done { (action) in
+            self.applyFavouriteContextAction(action, at: index)
+        }
+        .catch(policy: .allErrors) { _ in }
+    }
+    
     // MARK: Private
     
     private func scaleWithValue(_ value: Int) -> Double {
@@ -119,6 +147,17 @@ final class HomeInteractorImpl: HomeInteractor {
         } ?? 0
         
         controller?.updateHeightPickerItems(values, selectedIndex: selectedIndex)
+    }
+    
+    private func setupFavouriteItems() {
+        let values = favouritesService.getFavorites()
+        let items = values.map { value -> FavouriteItem in
+            guard let value = value else { return FavouriteItem(isSet: false, value: nil, label: "home.favourites.item.save".localized()) }
+            return FavouriteItem(isSet: true, value: value, label: String(format: "home.favourites.item.value".localized(), value))
+        }
+        
+        favouriteValues = values
+        controller?.updateFavourites(items)
     }
     
     private func updateBluetoothStatus(_ status: StatusValue) {
@@ -163,6 +202,16 @@ final class HomeInteractorImpl: HomeInteractor {
             }
     }
     
+    private func applyFavouriteContextAction(_ action: FavouritesActionType, at index: Int) {
+        switch action {
+        case .update:
+            guard let target = targetValue else { return }
+            favouritesService.setFavourite(target, at: index)
+        case .clear:
+            favouritesService.clearFavorite(at: index)
+        }
+    }
+    
     // MARK: Notifications
     
     @objc private func bluetoothStateChanged(notification: Notification) {
@@ -191,7 +240,8 @@ final class HomeInteractorImpl: HomeInteractor {
         self.updateBluetoothStatus(statusValue)
     }
     
-    
-    
+    @objc private func favouritesUpdated(notification: Notification) {
+        setupFavouriteItems()
+    }
     
 }

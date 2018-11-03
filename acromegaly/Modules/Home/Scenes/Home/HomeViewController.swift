@@ -16,6 +16,7 @@ protocol HomeController: class {
     func updateCurrentPosition(_ value: Int, scale: Double, animated: Bool)
     func updateMovingState(_ isMoving: Bool)
     func updateHeightPickerItems(_ items: [Int], selectedIndex: Int)
+    func updateFavourites(_ items: [FavouriteItem])
 }
 
 class HomeViewController: UIViewController, HomeController {
@@ -26,6 +27,9 @@ class HomeViewController: UIViewController, HomeController {
     @IBOutlet weak var heightInputConstraint: NSLayoutConstraint!
     @IBOutlet weak var decrementTargetButton: UIButton!
     @IBOutlet weak var incrementTargetButton: UIButton!    
+    @IBOutlet weak var favouritesCollectionView: UICollectionView!
+    @IBOutlet weak var favouritesCollectionLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var favouritesHeightContraint: NSLayoutConstraint!
     
     @IBOutlet var heightPickerView: UIPickerView!
     @IBOutlet var heightAccessoryView: UIToolbar!
@@ -34,6 +38,7 @@ class HomeViewController: UIViewController, HomeController {
     
     private var isEnabled: Bool = true
     private var heightPickerItems: [Int]?
+    private var favouriteItems: [FavouriteItem]?
     private var statusViewHiddingPromise: (promise: Promise<Void>, resolver: Resolver<Void>)?
     
     static func setup(interactor: HomeInteractor) -> HomeViewController {
@@ -46,12 +51,33 @@ class HomeViewController: UIViewController, HomeController {
     override func viewDidLoad() {
         super.viewDidLoad()
         interactor.controllerLoaded()
+        
         previewView.delegate = self
         
         heightField.inputPickerView = heightPickerView
         heightField.inputAccessoryToolbar = heightAccessoryView
         
+        favouritesCollectionView.register(FavouriteItemCell.nib, forCellWithReuseIdentifier: FavouriteItemCell.reuseIdentifier)
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrameNotification(_:)), name: UIWindow.keyboardWillChangeFrameNotification, object: nil)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        setupFavouritesCollectionLayout()
+    }
+    
+    private func setupFavouritesCollectionLayout() {
+        guard let items = favouriteItems else { return }
+        
+        let count = CGFloat(items.count)
+        let inset = favouritesCollectionLayout.sectionInset.left + favouritesCollectionLayout.sectionInset.right
+        let spacing = favouritesCollectionLayout.minimumInteritemSpacing
+        let width = (view.bounds.width - spacing * (count - 1) - inset) / count
+        
+        favouritesHeightContraint.constant = width
+        favouritesCollectionLayout.itemSize = CGSize(width: width, height: width)
     }
     
     private func setViewEnabled(_ enabled: Bool, animated: Bool) {
@@ -63,6 +89,9 @@ class HomeViewController: UIViewController, HomeController {
         previewView.isUserInteractionEnabled = enabled
         incrementTargetButton.isEnabled = enabled
         decrementTargetButton.isEnabled = enabled
+        favouritesCollectionView.visibleCells.forEach { (cell) in
+//            cell.isUserInteractionEnabled = enabled
+        }
     }
     
     // MARK: Notifications
@@ -78,6 +107,12 @@ class HomeViewController: UIViewController, HomeController {
     }
     
     // MARK: HomeController
+    
+    func updateFavourites(_ items: [FavouriteItem]) {
+        favouriteItems = items
+        favouritesCollectionView.reloadData()
+        setupFavouritesCollectionLayout()
+    }
     
     func updateHeightPickerItems(_ items: [Int], selectedIndex: Int) {
         heightPickerItems = items
@@ -148,6 +183,7 @@ extension HomeViewController: PositionPreviewViewDelegate {
     }
     
     func previewView(didApply position: Double, swiped: Bool, snapped: Bool) {
+        print("previewView(didApply \(position) swuped \(swiped) snapped \(snapped)")
         interactor.isTargetEditing = false
         
         guard !snapped else { return }
@@ -174,5 +210,40 @@ extension HomeViewController: UIPickerViewDataSource, UIPickerViewDelegate {
         guard let value = heightPickerItems?[row] else { return nil }
         return "\(value) mm"
     }    
+    
+}
+
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return favouriteItems?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: FavouriteItemCell.reuseIdentifier, for: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        guard let cell = cell as? FavouriteItemCell, let item = favouriteItems?[indexPath.item] else { return }
+        
+        cell.delegate = self
+        cell.value = item.label
+        cell.isSet = item.isSet
+    }
+    
+}
+
+extension HomeViewController: FavouriteItemCellDelegate {
+    
+    func favouriteItemCell(didAction cell: FavouriteItemCell) {
+        guard let index = favouritesCollectionView.indexPath(for: cell)?.item else { return }
+        interactor.favouriteAction(at: index)
+    }
+    
+    func favouriteItemCell(didContext cell: FavouriteItemCell) {
+        guard let index = favouritesCollectionView.indexPath(for: cell)?.item else { return }
+        interactor.favouriteContextAction(at: index)
+        
+    }
     
 }

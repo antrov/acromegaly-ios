@@ -12,3 +12,11 @@
 "home.home.bluetoothstatusview.scanning" = "Scanning...";
 "home.home.bluetoothstatusview.connecting" = "Connecting...";
 "home.home.bluetoothstatusview.connected" = "Connected";
+
+"home.favourites.action.title" = "Favourite height - %d cm";
+"home.favourites.action.update" = "Update with current target";
+"home.favourites.action.clear" = "Clear";
+"home.favourites.action.cancel" = "Cancel";
+
+"home.favourites.item.save" = "Save";
+"home.favourites.item.value" = "%d cm";

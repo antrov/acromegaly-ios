@@ -24,9 +24,12 @@
 		AF0E2F2C216EA1CB000B8359 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AF0E2F2A216EA1CB000B8359 /* Localizable.strings */; };
 		AF0E2F30216EA288000B8359 /* Localize.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E2F2E216EA288000B8359 /* Localize.swift */; };
 		AF0E2F31216EA288000B8359 /* String+LocalizedBundleTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF0E2F2F216EA288000B8359 /* String+LocalizedBundleTableName.swift */; };
+		AF10B41D2187A06F00EF7579 /* FavouritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF10B41C2187A06F00EF7579 /* FavouritesService.swift */; };
 		AF116F38215D7D1000C93A66 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */; };
 		AF24D7FC216F354400A6943F /* PositionPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF24D7FB216F354400A6943F /* PositionPreviewView.swift */; };
 		AF24D7FE216F363C00A6943F /* PositionPreviewView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF24D7FD216F363C00A6943F /* PositionPreviewView.xib */; };
+		AF25A618218AEA5200718FFE /* FavouritesActionControllerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF25A617218AEA5200718FFE /* FavouritesActionControllerBuilder.swift */; };
+		AF25A61B218CDC8100718FFE /* FavouriteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF25A61A218CDC8100718FFE /* FavouriteItem.swift */; };
 		AF5C928421302A8400FADA46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C928321302A8400FADA46 /* AppDelegate.swift */; };
 		AF5C928921302A8400FADA46 /* App.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928721302A8400FADA46 /* App.storyboard */; };
 		AF5C928E21302A8500FADA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF5C928C21302A8500FADA46 /* LaunchScreen.storyboard */; };
@@ -41,6 +44,8 @@
 		AFB0B9B12162C29B00F9E606 /* BluetoothCentralDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */; };
 		AFB0B9B32162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B22162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift */; };
 		AFB0B9B52162C2B900F9E606 /* BluetoothCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */; };
+		AFD480A421825C8600948A75 /* FavouriteItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD480A321825C8600948A75 /* FavouriteItemCell.swift */; };
+		AFD480A621825CC200948A75 /* FavouriteItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD480A521825CC200948A75 /* FavouriteItemCell.xib */; };
 		AFEC1454217668A3005EDA5C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC1453217668A3005EDA5C /* HomeViewController.swift */; };
 		AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF395272136B1260076C84D /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
@@ -63,9 +68,12 @@
 		AF0E2F2B216EA1CB000B8359 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = "acromegaly/Supporting Files/Base.lproj/Localizable.strings"; sourceTree = SOURCE_ROOT; };
 		AF0E2F2E216EA288000B8359 /* Localize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localize.swift; sourceTree = "<group>"; };
 		AF0E2F2F216EA288000B8359 /* String+LocalizedBundleTableName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+LocalizedBundleTableName.swift"; sourceTree = "<group>"; };
+		AF10B41C2187A06F00EF7579 /* FavouritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesService.swift; path = acromegaly/Services/Favourites/FavouritesService.swift; sourceTree = SOURCE_ROOT; };
 		AF116F37215D7D1000C93A66 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		AF24D7FB216F354400A6943F /* PositionPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PositionPreviewView.swift; path = acromegaly/Modules/Home/Scenes/Home/Views/PositionPreviewView.swift; sourceTree = SOURCE_ROOT; };
 		AF24D7FD216F363C00A6943F /* PositionPreviewView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PositionPreviewView.xib; sourceTree = "<group>"; };
+		AF25A617218AEA5200718FFE /* FavouritesActionControllerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouritesActionControllerBuilder.swift; path = acromegaly/Modules/Home/Scenes/Favourites/FavouritesActionControllerBuilder.swift; sourceTree = SOURCE_ROOT; };
+		AF25A61A218CDC8100718FFE /* FavouriteItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouriteItem.swift; path = acromegaly/Modules/Home/Scenes/Home/Models/FavouriteItem.swift; sourceTree = SOURCE_ROOT; };
 		AF5C928021302A8400FADA46 /* Acromegaly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Acromegaly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF5C928321302A8400FADA46 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF5C928821302A8400FADA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/App.storyboard; sourceTree = "<group>"; };
@@ -82,6 +90,8 @@
 		AFB0B9B02162C29B00F9E606 /* BluetoothCentralDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCentralDelegate.swift; sourceTree = "<group>"; };
 		AFB0B9B22162C2AC00F9E606 /* BluetoothPeripherialDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothPeripherialDelegate.swift; sourceTree = "<group>"; };
 		AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothCommunication.swift; sourceTree = "<group>"; };
+		AFD480A321825C8600948A75 /* FavouriteItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FavouriteItemCell.swift; path = acromegaly/Modules/Home/Scenes/Home/Views/FavouriteItemCell.swift; sourceTree = SOURCE_ROOT; };
+		AFD480A521825CC200948A75 /* FavouriteItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = FavouriteItemCell.xib; path = acromegaly/Modules/Home/Scenes/Home/Views/FavouriteItemCell.xib; sourceTree = SOURCE_ROOT; };
 		AFEC1453217668A3005EDA5C /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeViewController.swift; path = acromegaly/Modules/Home/Scenes/Home/HomeViewController.swift; sourceTree = SOURCE_ROOT; };
 		AFF395272136B1260076C84D /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				AF0A9080216D579D00BEB319 /* BluetoothStateView.swift */,
+				AFD480A321825C8600948A75 /* FavouriteItemCell.swift */,
+				AFD480A521825CC200948A75 /* FavouriteItemCell.xib */,
 				AF958A9A2177ABF8008C9677 /* HeightField.swift */,
 				AF24D7FB216F354400A6943F /* PositionPreviewView.swift */,
 				AF24D7FD216F363C00A6943F /* PositionPreviewView.xib */,
@@ -113,6 +125,7 @@
 		AF0C5CBD215E49F500BD69F6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AF10B41B2187A04F00EF7579 /* Favourites */,
 				AF6D4A8321627D9100ECB137 /* Bluetooth */,
 			);
 			path = Services;
@@ -201,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				AF0C5CE5215E686100BD69F6 /* Home */,
+				AF25A616218AEA2700718FFE /* Favourites */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -211,6 +225,7 @@
 				AFEC1453217668A3005EDA5C /* HomeViewController.swift */,
 				AF0C5CE8215E689700BD69F6 /* HomeInteractor.swift */,
 				AF0A907F216D574600BEB319 /* Views */,
+				AF25A619218CDC6900718FFE /* Models */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -233,6 +248,30 @@
 				AF0E2F2F216EA288000B8359 /* String+LocalizedBundleTableName.swift */,
 			);
 			path = Localize;
+			sourceTree = "<group>";
+		};
+		AF10B41B2187A04F00EF7579 /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				AF10B41C2187A06F00EF7579 /* FavouritesService.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		AF25A616218AEA2700718FFE /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				AF25A617218AEA5200718FFE /* FavouritesActionControllerBuilder.swift */,
+			);
+			path = Favourites;
+			sourceTree = "<group>";
+		};
+		AF25A619218CDC6900718FFE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF25A61A218CDC8100718FFE /* FavouriteItem.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AF5C927721302A8400FADA46 = {
@@ -358,6 +397,7 @@
 				AF24D7FE216F363C00A6943F /* PositionPreviewView.xib in Resources */,
 				AF0E2F2C216EA1CB000B8359 /* Localizable.strings in Resources */,
 				AF5C928E21302A8500FADA46 /* LaunchScreen.storyboard in Resources */,
+				AFD480A621825CC200948A75 /* FavouriteItemCell.xib in Resources */,
 				AF5C928921302A8400FADA46 /* App.storyboard in Resources */,
 				AF94B17E216FD21100FFFBE0 /* Assets.xcassets in Resources */,
 				AF0C5CE1215E681800BD69F6 /* Home.storyboard in Resources */,
@@ -393,6 +433,7 @@
 				AF0C5CCE215E4C8200BD69F6 /* AppCoordinator.swift in Sources */,
 				AF6768E42164EFBD00DA2631 /* CharacteristicHandler.swift in Sources */,
 				AF0C5CCB215E4B3100BD69F6 /* ControllerWrapper.swift in Sources */,
+				AF10B41D2187A06F00EF7579 /* FavouritesService.swift in Sources */,
 				AF94B17C216FB3C300FFFBE0 /* UIView+Nib.swift in Sources */,
 				AFAC5209215E9BA100DD1194 /* BluetoothService.swift in Sources */,
 				AF0C5CCA215E4B3100BD69F6 /* TabBarWrapper.swift in Sources */,
@@ -404,8 +445,11 @@
 				AF0C5CDE215E5D6200BD69F6 /* Storyboard.swift in Sources */,
 				AF5C928421302A8400FADA46 /* AppDelegate.swift in Sources */,
 				AF0C5CD5215E4CD400BD69F6 /* Logger.swift in Sources */,
+				AFD480A421825C8600948A75 /* FavouriteItemCell.swift in Sources */,
 				AF0E2F30216EA288000B8359 /* Localize.swift in Sources */,
 				AFEC1454217668A3005EDA5C /* HomeViewController.swift in Sources */,
+				AF25A61B218CDC8100718FFE /* FavouriteItem.swift in Sources */,
+				AF25A618218AEA5200718FFE /* FavouritesActionControllerBuilder.swift in Sources */,
 				AF0C5CE3215E683000BD69F6 /* HomeCoordinator.swift in Sources */,
 				AF0E2F25216E8A19000B8359 /* UIColor+Customs.swift in Sources */,
 				AF0C5CC9215E4B3100BD69F6 /* Coordinator.swift in Sources */,

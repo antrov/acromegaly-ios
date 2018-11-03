@@ -30,6 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PromiseKit.conf.Q.map = .global()
         
         ServiceLocator.register(singleton: BluetoothServiceImpl() as BluetoothService)
+        ServiceLocator.register(singleton: FavouritesServiceImp(favouritesCount: 4) as FavouritesService)
     }
 }
 
