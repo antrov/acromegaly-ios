@@ -90,7 +90,7 @@ class HomeViewController: UIViewController, HomeController {
         incrementTargetButton.isEnabled = enabled
         decrementTargetButton.isEnabled = enabled
         favouritesCollectionView.visibleCells.forEach { (cell) in
-//            cell.isUserInteractionEnabled = enabled
+            cell.isUserInteractionEnabled = enabled
         }
     }
     
@@ -124,7 +124,7 @@ class HomeViewController: UIViewController, HomeController {
         stateView.setHidden(state == .connected)
         setViewEnabled(state == .connected, animated: true)
         
-        UIApplication.shared.isNetworkActivityIndicatorVisible = state != .connected
+        UIApplication.shared.isNetworkActivityIndicatorVisible = state != .connected && state != .poweredOff
 //        statusViewHiddingPromise?.resolver.reject(PMKError.cancelled)
 //
 //        guard case .connected = state else { return }
