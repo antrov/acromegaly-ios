@@ -164,13 +164,15 @@ final class HomeInteractorImpl: HomeInteractor {
         var target: Int
         
         switch status.targetType {
-        case .exactValue:
-            target = status.target
+        
         case .extremumMax:
             target = positionBaseValue + positionSlideValue
         case .extremumMin:
             target = positionBaseValue
-        case .noTarget:
+        case .exactValue:
+            guard status.target != 0 else { fallthrough }
+            target = status.target
+        default:
             target = status.position
         }
 
@@ -187,7 +189,6 @@ final class HomeInteractorImpl: HomeInteractor {
         guard case .normal = targetState else { return }
         
         targetState = .isApplying
-        print("request Target:", targetType)
         
         bluetoothService
             .setStatusSubscription(enabled: true)
@@ -198,7 +199,7 @@ final class HomeInteractorImpl: HomeInteractor {
                 self.targetState = .normal
             }
             .catch { (error) in
-                print("bluetoth serror", error)
+                print("bluetoth error", error)
             }
     }
     
@@ -231,7 +232,7 @@ final class HomeInteractorImpl: HomeInteractor {
                 self.updateBluetoothStatus(statusValue)
             })
             .catch { (error) in
-                print("bluetoth serror", error)
+                print("bluetoth error", error)
             }
     }
     

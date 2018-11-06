@@ -50,7 +50,6 @@ extension BluetoothServiceImpl {
             let bytes: [UInt8] = [command.rawValue] + value
             let data = Data(bytes: bytes)
             
-//            print("writing to \(handler.characteristic.uuid.uuidString) value \(data.hexEncodedString())")
             peripheral.writeValue(data, for: handler.characteristic, type: .withResponse)
         })
     }

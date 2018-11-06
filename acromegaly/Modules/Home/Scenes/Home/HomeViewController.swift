@@ -183,7 +183,6 @@ extension HomeViewController: PositionPreviewViewDelegate {
     }
     
     func previewView(didApply position: Double, swiped: Bool, snapped: Bool) {
-        print("previewView(didApply \(position) swuped \(swiped) snapped \(snapped)")
         interactor.isTargetEditing = false
         
         guard !snapped else { return }

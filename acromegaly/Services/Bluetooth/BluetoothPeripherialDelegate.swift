@@ -30,7 +30,6 @@ extension BluetoothServiceImpl: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
-//        print("didWriteValueFor", characteristic.uuid.uuidString, error?.localizedDescription ?? "")
         guard let characteristicType = BluetoothConstants.Characteristic(rawValue: characteristic.uuid.uuidString) else { return }
         
         switch characteristicType {
@@ -42,7 +41,6 @@ extension BluetoothServiceImpl: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-//        print("didUpdateValueFor", characteristic.uuid.uuidString, error?.localizedDescription ?? "")
         guard let characteristicType = BluetoothConstants.Characteristic(rawValue: characteristic.uuid.uuidString), let data = characteristic.value else { return }
         
         switch characteristicType {
@@ -54,7 +52,6 @@ extension BluetoothServiceImpl: CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
-//        print("didUpdateNotificationStateFor", characteristic.uuid.uuidString, error?.localizedDescription ?? "")
         guard let characteristicType = BluetoothConstants.Characteristic(rawValue: characteristic.uuid.uuidString) else { return }
         
         switch characteristicType {

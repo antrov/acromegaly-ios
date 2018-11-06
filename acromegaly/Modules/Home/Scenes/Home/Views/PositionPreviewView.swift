@@ -56,7 +56,6 @@ final class PositionPreviewView: UIView, NibView {
     }
     
     func setTargetPosition(_ position: Double, animated: Bool) {
-        print("previewView setTargetP{Osition \(position) with finished \(isPanFinished)")
         guard isPanFinished else { return }
         targetPos = CGFloat(1 - position)
         
