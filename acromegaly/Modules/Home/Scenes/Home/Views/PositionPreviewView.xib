@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_target_line" translatesAutoresizingMaskIntoConstraints="NO" id="zKY-j2-GDY">
-                    <rect key="frame" x="171" y="122" width="175" height="55.5"/>
+                    <rect key="frame" x="171" y="117" width="175" height="55.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="zKY-j2-GDY" secondAttribute="height" multiplier="348:111" id="TDl-a7-fYs"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_desk_top" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-6F-SGJ">
-                    <rect key="frame" x="171" y="49" width="175" height="165"/>
+                    <rect key="frame" x="171" y="44" width="175" height="165"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9cX-6F-SGJ" secondAttribute="height" multiplier="175:165" id="d7a-J1-i3c"/>
@@ -51,7 +51,7 @@
             <constraints>
                 <constraint firstItem="9cX-6F-SGJ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.466666" id="2or-tH-JrV"/>
                 <constraint firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" multiplier="0.725" id="41s-cu-Ymt"/>
-                <constraint firstItem="prp-Fi-Xjj" firstAttribute="top" secondItem="9cX-6F-SGJ" secondAttribute="centerY" constant="30" id="4EZ-hb-Kpx"/>
+                <constraint firstItem="prp-Fi-Xjj" firstAttribute="top" secondItem="9cX-6F-SGJ" secondAttribute="centerY" constant="35" id="4EZ-hb-Kpx"/>
                 <constraint firstAttribute="trailing" secondItem="12X-x7-cZG" secondAttribute="trailing" id="AMy-Mr-rrz"/>
                 <constraint firstItem="12X-x7-cZG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IGk-RD-b6o"/>
                 <constraint firstItem="9cX-6F-SGJ" firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" id="NFe-hG-ilW"/>
@@ -59,7 +59,7 @@
                 <constraint firstItem="12X-x7-cZG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RsP-Pq-1XU"/>
                 <constraint firstAttribute="bottom" secondItem="prp-Fi-Xjj" secondAttribute="bottom" id="SI5-K2-Han"/>
                 <constraint firstItem="zKY-j2-GDY" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.466666" id="YrC-c1-wD4"/>
-                <constraint firstItem="prp-Fi-Xjj" firstAttribute="top" secondItem="zKY-j2-GDY" secondAttribute="centerY" constant="12" id="gI7-Ew-7VG"/>
+                <constraint firstItem="prp-Fi-Xjj" firstAttribute="top" secondItem="zKY-j2-GDY" secondAttribute="centerY" constant="17" id="gI7-Ew-7VG"/>
                 <constraint firstItem="zKY-j2-GDY" firstAttribute="trailing" secondItem="9cX-6F-SGJ" secondAttribute="trailing" id="jXW-s8-XCo"/>
                 <constraint firstAttribute="bottom" secondItem="12X-x7-cZG" secondAttribute="bottom" id="xfV-8c-Ryw"/>
             </constraints>

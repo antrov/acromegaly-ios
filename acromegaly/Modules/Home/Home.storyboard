@@ -139,6 +139,7 @@
                             <constraint firstItem="c6G-o9-ODi" firstAttribute="trailing" secondItem="MhE-3w-kKP" secondAttribute="trailing" id="cZY-TV-pav"/>
                             <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" secondItem="zMv-vD-xHp" secondAttribute="bottom" constant="8" id="eR8-BU-qfh"/>
                             <constraint firstItem="MhE-3w-kKP" firstAttribute="trailing" secondItem="zMv-vD-xHp" secondAttribute="trailing" id="jWf-Fb-B3n"/>
+                            <constraint firstItem="MhE-3w-kKP" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="MoE-jS-mDB" secondAttribute="bottom" constant="156" id="qKu-RU-PWt"/>
                             <constraint firstItem="c6G-o9-ODi" firstAttribute="leading" secondItem="MhE-3w-kKP" secondAttribute="leading" id="zoz-i7-f6E"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MhE-3w-kKP"/>
@@ -152,6 +153,7 @@
                         <outlet property="favouritesHeightContraint" destination="FfS-JO-9To" id="ktB-xB-2xT"/>
                         <outlet property="heightAccessoryView" destination="Vzu-TE-qgh" id="8cw-I3-LWG"/>
                         <outlet property="heightField" destination="Lfa-om-GnU" id="SUk-ai-gbH"/>
+                        <outlet property="heightInputConstraint" destination="qKu-RU-PWt" id="quS-rB-DqS"/>
                         <outlet property="heightPickerView" destination="Nvk-CQ-4Lz" id="3wy-zV-4nY"/>
                         <outlet property="incrementTargetButton" destination="uPw-su-sdt" id="Vp1-bu-YHS"/>
                         <outlet property="previewView" destination="mVQ-Rj-6oV" id="Rik-86-bBa"/>
