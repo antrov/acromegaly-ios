@@ -9,6 +9,7 @@
 import Foundation
 import PromiseKit
 import UIKit
+import Disk
 
 protocol HomeInteractor: class {
     var controller: HomeController? { get set }
@@ -41,7 +42,9 @@ final class HomeInteractorImpl: HomeInteractor {
     private let positionChangeStep: Int = 5
     private let positionBaseValue: Int = 834
     private let positionSlideValue: Int = 429
+    private let statusCacheFile: String = "BluetoothStatusValue"
     
+    private var isBluetoothConnected: Bool = false
     private var targetValue: Int?
     private var favouriteValues: [Int?]?
     
@@ -70,6 +73,7 @@ final class HomeInteractorImpl: HomeInteractor {
         setupNotifications()
         setupTargetPossibleValues()
         setupFavouriteItems()
+        retrieveCachedStatus()
         
         bluetoothService.connect()
     }
@@ -134,6 +138,12 @@ final class HomeInteractorImpl: HomeInteractor {
     
     // MARK: Private
     
+    private func retrieveCachedStatus() {
+        guard let cachedStatus = try? Disk.retrieve(statusCacheFile, from: .caches, as: StatusValue.self) else { return }
+        
+        updateBluetoothStatus(cachedStatus)
+    }
+    
     private func setupNotifications() {
         let center = NotificationCenter.default
         
@@ -187,8 +197,8 @@ final class HomeInteractorImpl: HomeInteractor {
         targetValue = target
         
         controller?.updateMovingState(status.movement != .none)
-        controller?.updateCurrentPosition(status.position, scale: scaleWithValue(status.position), animated: true)
-        controller?.updateTargetPosition(target, scale: scaleWithValue(target), animated: true)
+        controller?.updateCurrentPosition(status.position, scale: scaleWithValue(status.position), animated: isBluetoothConnected)
+        controller?.updateTargetPosition(target, scale: scaleWithValue(target), animated: isBluetoothConnected)
         setupTargetPossibleValues()
         print("target is now \(target)mm \(scaleWithValue(target)) - type: \(status.targetType)")
     }
@@ -226,6 +236,7 @@ final class HomeInteractorImpl: HomeInteractor {
     @objc private func bluetoothStateChanged(notification: Notification) {
         let state = bluetoothService.state
         
+        isBluetoothConnected = state == .connected
         controller?.updateBluetooth(state: state)
         
         if state == .unknown {
@@ -234,6 +245,7 @@ final class HomeInteractorImpl: HomeInteractor {
         }
         
         guard state == .connected else { return }
+        
         bluetoothService
             .getStatus()
             .done({ (statusValue) in
@@ -246,7 +258,9 @@ final class HomeInteractorImpl: HomeInteractor {
     
     @objc private func bluetoothStatusReceived(notification: Notification) {
         guard let statusValue = notification.userInfo?["status"] as? StatusValue else { return }
+        
         self.updateBluetoothStatus(statusValue)
+        try? Disk.save(statusValue, to: .caches, as: statusCacheFile)
     }
     
     @objc private func favouritesUpdated(notification: Notification) {

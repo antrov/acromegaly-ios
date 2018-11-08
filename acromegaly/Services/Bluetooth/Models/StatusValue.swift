@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct StatusValue {
+struct StatusValue: Codable {
     /// Current desk position, expressed in millimeters
     let position: Int
     

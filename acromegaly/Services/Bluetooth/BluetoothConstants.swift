@@ -33,7 +33,7 @@ struct BluetoothConstants {
         case setExtremumTarget = 0x88
     }
     
-    enum CurrentTargetType: UInt8 {
+    enum CurrentTargetType: UInt8, Codable {
         case noTarget = 0
         case exactValue = 2
         case extremumMin = 4
@@ -45,7 +45,7 @@ struct BluetoothConstants {
         static let top: UInt8 = 0xFF
     }
     
-    enum MovementType: UInt8 {
+    enum MovementType: UInt8, Codable {
         case up = 0xCB
         case down = 0x92
         case none = 0xA1
