@@ -8,6 +8,7 @@
 
 import Foundation
 import PromiseKit
+import UIKit
 
 protocol HomeInteractor: class {
     var controller: HomeController? { get set }
@@ -66,14 +67,11 @@ final class HomeInteractorImpl: HomeInteractor {
     }
     
     func controllerLoaded() {
+        setupNotifications()
         setupTargetPossibleValues()
         setupFavouriteItems()
         
         bluetoothService.connect()
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(bluetoothStateChanged), name: .bluetoothStateChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(bluetoothStatusReceived), name: .bluetoothStatusReceived, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(favouritesUpdated), name: .favouritesUpdated, object: nil)
     }
     
     // MARK: HomeInteractor
@@ -135,6 +133,16 @@ final class HomeInteractorImpl: HomeInteractor {
     }
     
     // MARK: Private
+    
+    private func setupNotifications() {
+        let center = NotificationCenter.default
+        
+        center.addObserver(self, selector: #selector(bluetoothStateChanged), name: .bluetoothStateChanged, object: nil)
+        center.addObserver(self, selector: #selector(bluetoothStatusReceived), name: .bluetoothStatusReceived, object: nil)
+        center.addObserver(self, selector: #selector(favouritesUpdated), name: .favouritesUpdated, object: nil)
+        center.addObserver(self, selector: #selector(applicationWillEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
+        center.addObserver(self, selector: #selector(applicationDidEnterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+    }
     
     private func scaleWithValue(_ value: Int) -> Double {
         return Double(value - positionBaseValue) / Double(positionSlideValue)
@@ -243,6 +251,14 @@ final class HomeInteractorImpl: HomeInteractor {
     
     @objc private func favouritesUpdated(notification: Notification) {
         setupFavouriteItems()
+    }
+    
+    @objc private func applicationWillEnterForeground(_ notification: Notification) {
+        bluetoothService.connect()
+    }
+    
+    @objc private func applicationDidEnterBackground(_ notification: Notification) {
+        bluetoothService.disconnect()
     }
     
 }
