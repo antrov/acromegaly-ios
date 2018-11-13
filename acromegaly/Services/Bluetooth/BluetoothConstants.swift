@@ -34,7 +34,7 @@ struct BluetoothConstants {
     }
     
     enum CurrentTargetType: UInt8, Codable {
-        case noTarget = 0
+        case noTarget = 1
         case exactValue = 2
         case extremumMin = 4
         case extremumMax = 8
