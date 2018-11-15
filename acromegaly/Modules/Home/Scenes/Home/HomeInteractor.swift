@@ -39,7 +39,7 @@ final class HomeInteractorImpl: HomeInteractor {
     private lazy var bluetoothService: BluetoothService = ServiceLocator.inject()
     private lazy var favouritesService: FavouritesService = ServiceLocator.inject()
     
-    private let positionChangeStep: Int = 5
+    private let positionChangeStep: Int = 4
     private let positionBaseValue: Int = 834
     private let positionSlideValue: Int = 429
     private let statusCacheFile: String = "BluetoothStatusValue"
@@ -159,7 +159,7 @@ final class HomeInteractorImpl: HomeInteractor {
     }
     
     private func setupTargetPossibleValues() {
-        let values = stride(from: positionBaseValue, to: positionBaseValue + positionSlideValue, by: 10).map { Int($0) }
+        let values = stride(from: positionBaseValue, to: positionBaseValue + positionSlideValue + positionChangeStep, by: positionChangeStep * 2).map { Int($0) }
         let selectedIndex = targetValue == nil ? 0 : values.firstIndex { (value) -> Bool in
             abs(value - self.targetValue!) <= self.positionChangeStep
         } ?? 0
