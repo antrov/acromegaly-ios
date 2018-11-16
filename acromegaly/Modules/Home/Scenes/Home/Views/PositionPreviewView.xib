@@ -25,7 +25,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="305"/>
                 </imageView>
                 <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_target_line" translatesAutoresizingMaskIntoConstraints="NO" id="zKY-j2-GDY">
-                    <rect key="frame" x="171" y="117" width="175" height="55.5"/>
+                    <rect key="frame" x="153" y="117" width="175" height="55.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="zKY-j2-GDY" secondAttribute="height" multiplier="348:111" id="TDl-a7-fYs"/>
                     </constraints>
@@ -34,13 +34,13 @@
                     </connections>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_desk_bottom" translatesAutoresizingMaskIntoConstraints="NO" id="prp-Fi-Xjj">
-                    <rect key="frame" x="171.5" y="161.5" width="174" height="143.5"/>
+                    <rect key="frame" x="153.5" y="161.5" width="174" height="143.5"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="prp-Fi-Xjj" secondAttribute="height" multiplier="348:287" id="EVS-RS-jNa"/>
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_desk_top" translatesAutoresizingMaskIntoConstraints="NO" id="9cX-6F-SGJ">
-                    <rect key="frame" x="171" y="44" width="175" height="165"/>
+                    <rect key="frame" x="153" y="44" width="175" height="165"/>
                     <gestureRecognizers/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="9cX-6F-SGJ" secondAttribute="height" multiplier="175:165" id="d7a-J1-i3c"/>
@@ -50,7 +50,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="9cX-6F-SGJ" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.466666" id="2or-tH-JrV"/>
-                <constraint firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" multiplier="0.725" id="41s-cu-Ymt"/>
+                <constraint firstAttribute="centerX" secondItem="prp-Fi-Xjj" secondAttribute="centerX" multiplier="0.78" id="41s-cu-Ymt"/>
                 <constraint firstItem="prp-Fi-Xjj" firstAttribute="top" secondItem="9cX-6F-SGJ" secondAttribute="centerY" constant="35" id="4EZ-hb-Kpx"/>
                 <constraint firstAttribute="trailing" secondItem="12X-x7-cZG" secondAttribute="trailing" id="AMy-Mr-rrz"/>
                 <constraint firstItem="12X-x7-cZG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="IGk-RD-b6o"/>
