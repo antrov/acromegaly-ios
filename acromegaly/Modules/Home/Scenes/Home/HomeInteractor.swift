@@ -39,7 +39,7 @@ final class HomeInteractorImpl: HomeInteractor {
     private lazy var bluetoothService: BluetoothService = ServiceLocator.inject()
     private lazy var favouritesService: FavouritesService = ServiceLocator.inject()
     
-    private let positionChangeStep: Int = 4
+    private let positionChangeStep: Int = 5
     private let positionBaseValue: Int = 834
     private let positionSlideValue: Int = 429
     private let statusCacheFile: String = "BluetoothStatusValue"
