@@ -125,11 +125,6 @@ class HomeViewController: UIViewController, HomeController {
         setViewEnabled(state == .connected, animated: true)
         
         UIApplication.shared.isNetworkActivityIndicatorVisible = state != .connected && state != .poweredOff
-//        statusViewHiddingPromise?.resolver.reject(PMKError.cancelled)
-//
-//        guard case .connected = state else { return }
-//        statusViewHiddingPromise = Promise.pending()
-//
     }
     
     func updateTargetPosition(_ value: Int, scale: Double, animated: Bool) {
