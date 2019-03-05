@@ -1,5 +1,19 @@
 # Acromegaly iOS
-iOS Client for movable table BLE controller
+
+Acromegaly iOS is a remote controller for the adjustable height desk. 
+
+This resposity is a part of the [Acromegaly project](https://github.com/antrov/acromegaly) - Open Source desk with adjustable height.
+
+![Settings exact height](https://raw.githubusercontent.com/antrov/acromegaly-ios/develop/docs/height.gif)
+![Swipe gesture](https://raw.githubusercontent.com/antrov/acromegaly-ios/develop/docs/swipe.gif)
+
+### Features:
+
+* auto scanning and connecting to dedicated BLE device ([acromegaly-nrf51](https://github.com/antrov/acromegaly-nrf51))
+* visual representation of current and requested desk height
+* setting exact height of a desk
+* swipe gesture to set bounding positions
+* storing of the favourites positions
 
 ## Build with Xcode
 
