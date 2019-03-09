@@ -1,6 +1,6 @@
 # Acromegaly iOS
 
-Acromegaly iOS is a remote controller for the adjustable height desk. 
+Acromegaly iOS is a controlling app for the desk with automatically adjustable height. 
 
 This resposity is a part of the [Acromegaly project](https://github.com/antrov/acromegaly) - Open Source desk with adjustable height.
 
