@@ -91,7 +91,7 @@ firstly {
 > Swift emits a warning if you forget to `catch` a chain. But we'll
 > talk about that in more detail later.
 
-Each promise is an object that represents an individual, asychnronous task.
+Each promise is an object that represents an individual, asynchronous task.
 If a task fails, its promise becomes *rejected*. Chains that contain rejected
 promises skip all subsequent `then`s. Instead, the next `catch` is executed.
 (Strictly speaking, *all* subsequent `catch` handlers are executed.)
@@ -532,4 +532,4 @@ different API (sorry about that, but Swift has changed a lot over the years and 
 we had to too).
 
 
-[API Reference]: https://promisekit.org/reference/
+[API Reference]: https://mxcl.dev/PromiseKit/reference/v6/Classes/Promise.html

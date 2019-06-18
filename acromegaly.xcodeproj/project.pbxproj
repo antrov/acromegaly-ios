@@ -371,7 +371,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AF5C927B21302A8400FADA46 /* Build configuration list for PBXProject "Acromegaly" */;
+			buildConfigurationList = AF5C927B21302A8400FADA46 /* Build configuration list for PBXProject "acromegaly" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -660,7 +660,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AF5C927B21302A8400FADA46 /* Build configuration list for PBXProject "Acromegaly" */ = {
+		AF5C927B21302A8400FADA46 /* Build configuration list for PBXProject "acromegaly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AF5C929021302A8500FADA46 /* Debug */,
