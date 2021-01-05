@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -46,8 +46,9 @@
 		AFB0B9B52162C2B900F9E606 /* BluetoothCommunication.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB0B9B42162C2B900F9E606 /* BluetoothCommunication.swift */; };
 		AFD480A421825C8600948A75 /* FavouriteItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD480A321825C8600948A75 /* FavouriteItemCell.swift */; };
 		AFD480A621825CC200948A75 /* FavouriteItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AFD480A521825CC200948A75 /* FavouriteItemCell.xib */; };
+		AFE31AB425A4A25B00E1ACF0 /* Disk in Frameworks */ = {isa = PBXBuildFile; productRef = AFE31AB325A4A25B00E1ACF0 /* Disk */; };
+		AFE31AB825A4A2B700E1ACF0 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = AFE31AB725A4A2B700E1ACF0 /* PromiseKit */; };
 		AFEC1454217668A3005EDA5C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC1453217668A3005EDA5C /* HomeViewController.swift */; };
-		AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFF395272136B1260076C84D /* PromiseKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,7 +103,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				AF116F38215D7D1000C93A66 /* CoreBluetooth.framework in Frameworks */,
-				AFF395282136B1260076C84D /* PromiseKit.framework in Frameworks */,
+				AFE31AB825A4A2B700E1ACF0 /* PromiseKit in Frameworks */,
+				AFE31AB425A4A25B00E1ACF0 /* Disk in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -344,13 +346,16 @@
 				AF5C927C21302A8400FADA46 /* Sources */,
 				AF5C927D21302A8400FADA46 /* Frameworks */,
 				AF5C927E21302A8400FADA46 /* Resources */,
-				AFF395292136B1320076C84D /* Carthage Copy Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Acromegaly;
+			packageProductDependencies = (
+				AFE31AB325A4A25B00E1ACF0 /* Disk */,
+				AFE31AB725A4A2B700E1ACF0 /* PromiseKit */,
+			);
 			productName = Acromegaly;
 			productReference = AF5C928021302A8400FADA46 /* Acromegaly.app */;
 			productType = "com.apple.product-type.application";
@@ -380,6 +385,10 @@
 				Base,
 			);
 			mainGroup = AF5C927721302A8400FADA46;
+			packageReferences = (
+				AFE31AB225A4A25B00E1ACF0 /* XCRemoteSwiftPackageReference "Disk" */,
+				AFE31AB625A4A2B700E1ACF0 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = AF5C928121302A8400FADA46 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -405,27 +414,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		AFF395292136B1320076C84D /* Carthage Copy Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/PromiseKit.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Disk.framework",
-			);
-			name = "Carthage Copy Frameworks";
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/PromiseKit.framework",
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/Disk.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AF5C927C21302A8400FADA46 /* Sources */ = {
@@ -616,6 +604,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,6 +628,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = Q436T99AEU;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -679,6 +669,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AFE31AB225A4A25B00E1ACF0 /* XCRemoteSwiftPackageReference "Disk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/saoudrizwan/Disk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.4;
+			};
+		};
+		AFE31AB625A4A2B700E1ACF0 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.13.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AFE31AB325A4A25B00E1ACF0 /* Disk */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFE31AB225A4A25B00E1ACF0 /* XCRemoteSwiftPackageReference "Disk" */;
+			productName = Disk;
+		};
+		AFE31AB725A4A2B700E1ACF0 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFE31AB625A4A2B700E1ACF0 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AF5C927821302A8400FADA46 /* Project object */;
 }
